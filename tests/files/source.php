@@ -10,4 +10,9 @@ return array (
         '1' => 'rty',
         'asd' => 'zxc',
     ),
+    'asdfgh' => array (
+        'foobarbaz' => 'qwe',
+        '2' => 'rty',
+        'qawsed' => 'zxc',
+    ),
 );

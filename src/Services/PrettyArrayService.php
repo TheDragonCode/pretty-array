@@ -18,6 +18,8 @@ final class PrettyArrayService
 
     private $equals_align = false;
 
+    private $pad_length = 4;
+
     public function setKeyAsString(): void
     {
         $this->key_as_string = true;
@@ -74,31 +76,31 @@ final class PrettyArrayService
         return require $filename;
     }
 
-    final private function format(array $array, int $pad = 4): string
+    final private function format(array $array, int $pad = 1): string
     {
-        $formatted = '[' . PHP_EOL;
-
-        $keys = array_keys($array);
+        $keys_size  = $this->sizeKeys($array);
+        $pad_length = $this->pad_length * $pad;
+        $formatted  = '[' . PHP_EOL;
 
         foreach ($array as $key => $value) {
-            $key   = $this->key($key, $keys);
-            $value = $this->value($value, $pad + 4);
+            $key   = $this->key($key, $keys_size + ($pad * 2));
+            $value = $this->value($value, $pad + 1);
 
-            $row = "{$key} => {$value}," . PHP_EOL;
+            $row = "{$key}=> {$value}," . PHP_EOL;
 
-            $formatted .= $this->pad($pad, $row);
+            $formatted .= $this->pad($pad_length, $row);
         }
 
-        $formatted .= $this->pad($pad - 4, ']');
+        $formatted .= $this->pad($pad_length - 6, ']');
 
         return $formatted;
     }
 
     final private function pad(int $pad_length = 0, string $value = '', $type = STR_PAD_LEFT): string
     {
-        if ($type === STR_PAD_LEFT) {
-            $pad_length += mb_strlen(trim($value)) + 2;
-        }
+        $pad_length += $type === STR_PAD_LEFT
+            ? mb_strlen(trim($value)) + 2
+            : 0;
 
         return str_pad($value, $pad_length, ' ', $type);
     }
@@ -116,7 +118,7 @@ final class PrettyArrayService
         return "'{$value}'";
     }
 
-    final private function key($value, array $keys = [])
+    final private function key($value, int $keys_size = 0)
     {
         $value = ! $this->key_as_string && is_numeric($value)
             ? $value
@@ -126,8 +128,15 @@ final class PrettyArrayService
             return $value;
         }
 
-        $size = Arr::sizeOfMaxValue($keys);
+        return $this->pad($keys_size + $this->pad_length - 2, $value, STR_PAD_RIGHT);
+    }
 
-        return $this->pad($size + 2, $value, STR_PAD_RIGHT);
+    final private function sizeKeys(array $array): int
+    {
+        $keys = array_map(function ($key) {
+            return (string) $key;
+        }, array_keys($array));
+
+        return Arr::sizeOfMaxValue($keys);
     }
 }
