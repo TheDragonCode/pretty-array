@@ -25,7 +25,7 @@ final class PrettyArrayService
         $this->key_as_string = true;
     }
 
-    public function equalsAlign(): void
+    public function setEqualsAlign(): void
     {
         $this->equals_align = true;
     }

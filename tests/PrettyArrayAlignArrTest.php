@@ -21,7 +21,7 @@ class PrettyArrayAlignArrTest extends TestCase
     {
         $service = new PrettyArrayService();
         $service->setKeyAsString();
-        $service->equalsAlign();
+        $service->setEqualsAlign();
         $service->store($this->source, $this->source . '.3.php');
 
         $this->assertFileEquals(
@@ -36,7 +36,7 @@ class PrettyArrayAlignArrTest extends TestCase
     public function testNotString()
     {
         $service = new PrettyArrayService();
-        $service->equalsAlign();
+        $service->setEqualsAlign();
         $service->store($this->source, $this->source . '.4.php');
 
         $this->assertFileEquals(

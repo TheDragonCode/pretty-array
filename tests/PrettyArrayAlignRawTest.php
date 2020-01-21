@@ -21,7 +21,7 @@ class PrettyArrayAlignRawTest extends TestCase
     {
         $service = new PrettyArrayService();
         $service->setKeyAsString();
-        $service->equalsAlign();
+        $service->setEqualsAlign();
 
         $content = $service->getRaw($this->source);
 
@@ -37,7 +37,7 @@ class PrettyArrayAlignRawTest extends TestCase
     public function testStoreNotString()
     {
         $service = new PrettyArrayService();
-        $service->equalsAlign();
+        $service->setEqualsAlign();
 
         $content = $service->getRaw($this->source);
 
