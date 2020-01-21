@@ -33,9 +33,8 @@ final class PrettyArrayService
     /**
      * @param string $filename
      *
-     * @throws FileDoesntExistsException
-     *
      * @return string
+     * @throws FileDoesntExistsException
      */
     final public function getRaw(string $filename): string
     {
