@@ -36,7 +36,7 @@ final class PrettyArrayService
      * @return string
      * @throws FileDoesntExistsException
      */
-    final public function getRaw(string $filename): string
+    public function getRaw(string $filename): string
     {
         $array = $this->load($filename);
 
@@ -49,7 +49,7 @@ final class PrettyArrayService
      *
      * @throws FileDoesntExistsException
      */
-    final public function store(string $filename, string $target_filename = null)
+    public function store(string $filename, string $target_filename = null)
     {
         $content = $this->getRaw($filename);
 
@@ -66,7 +66,7 @@ final class PrettyArrayService
      *
      * @return array
      */
-    final private function load(string $filename): array
+    protected function load(string $filename): array
     {
         if (! file_exists($filename)) {
             throw new FileDoesntExistsException($filename);
@@ -75,7 +75,7 @@ final class PrettyArrayService
         return require $filename;
     }
 
-    final private function format(array $array, int $pad = 1): string
+    protected function format(array $array, int $pad = 1): string
     {
         $keys_size  = $this->sizeKeys($array);
         $pad_length = $this->pad_length * $pad;
@@ -95,7 +95,7 @@ final class PrettyArrayService
         return $formatted;
     }
 
-    final private function pad(int $pad_length = 0, string $value = '', $type = STR_PAD_LEFT): string
+    protected function pad(int $pad_length = 0, string $value = '', $type = STR_PAD_LEFT): string
     {
         $pad_length += $type === STR_PAD_LEFT
             ? mb_strlen(trim($value)) + 2
@@ -104,7 +104,7 @@ final class PrettyArrayService
         return str_pad($value, $pad_length, ' ', $type);
     }
 
-    final private function value($value, int $pad = 0)
+    protected function value($value, int $pad = 0)
     {
         if (is_array($value)) {
             return $this->format($value, $pad);
@@ -117,7 +117,7 @@ final class PrettyArrayService
         return "'{$value}'";
     }
 
-    final private function key($value, int $keys_size = 0)
+    protected function key($value, int $keys_size = 0)
     {
         $value = ! $this->key_as_string && is_numeric($value)
             ? $value
@@ -130,7 +130,7 @@ final class PrettyArrayService
         return $this->pad($keys_size + $this->pad_length - 2, $value, STR_PAD_RIGHT);
     }
 
-    final private function sizeKeys(array $array): int
+    protected function sizeKeys(array $array): int
     {
         $keys = array_map(function ($key) {
             return (string) $key;
