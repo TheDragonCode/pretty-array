@@ -1,5 +1,7 @@
 .idea/
 vendor/
+
 tests/files/source.php.*.php
+
 *.cache
 *.log
