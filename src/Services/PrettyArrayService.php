@@ -14,11 +14,11 @@ use function trim;
 
 final class PrettyArrayService
 {
-    private $key_as_string = false;
+    protected $key_as_string = false;
 
-    private $equals_align = false;
+    protected $equals_align = false;
 
-    private $pad_length = 4;
+    protected $pad_length = 4;
 
     public function setKeyAsString(): void
     {
