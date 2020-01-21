@@ -62,9 +62,8 @@ final class PrettyArrayService
     /**
      * @param string $filename
      *
-     * @throws FileDoesntExistsException
-     *
      * @return array
+     * @throws FileDoesntExistsException
      */
     protected function load(string $filename): array
     {
