@@ -40,12 +40,5 @@
         "sort-packages": true
     },
     "minimum-stability": "stable",
-    "prefer-stable": true,
-    "extra": {
-        "laravel": {
-            "providers": [
-                "Helldar\\PrettyArray\\Providers\\LaravelServiceProvider"
-            ]
-        }
-    }
+    "prefer-stable": true
 }
