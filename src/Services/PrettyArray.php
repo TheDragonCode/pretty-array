@@ -12,7 +12,7 @@ use function mb_strlen;
 use function str_pad;
 use function trim;
 
-final class PrettyArrayService
+final class PrettyArray
 {
     protected $key_as_string = false;
 
@@ -30,33 +30,34 @@ final class PrettyArrayService
         $this->equals_align = true;
     }
 
-    /**
-     * @param string $filename
-     *
-     * @return string
-     * @throws FileDoesntExistsException
-     */
-    public function getRaw(string $filename): string
+    public function store(string $filename, array $array)
     {
-        $array = $this->load($filename);
-
-        return $this->format($array);
-    }
-
-    /**
-     * @param string $filename
-     * @param string|null $target_filename
-     *
-     * @throws FileDoesntExistsException
-     */
-    public function store(string $filename, string $target_filename = null)
-    {
-        $content = $this->getRaw($filename);
+        $content = $this->format($array);
 
         file_put_contents(
-            $target_filename ?: $filename,
+            $filename,
             '<?php' . PHP_EOL . PHP_EOL . 'return ' . $content . ';' . PHP_EOL
         );
+    }
+
+    public function format(array $array, int $pad = 1): string
+    {
+        $keys_size  = $this->sizeKeys($array);
+        $pad_length = $this->pad_length * $pad;
+        $formatted  = '[' . PHP_EOL;
+
+        foreach ($array as $key => $value) {
+            $key   = $this->key($key, $keys_size + ($pad * 2));
+            $value = $this->value($value, $pad + 1);
+
+            $row = "{$key} => {$value}," . PHP_EOL;
+
+            $formatted .= $this->pad($pad_length, $row);
+        }
+
+        $formatted .= $this->pad($pad_length - 6, ']');
+
+        return $formatted;
     }
 
     /**
@@ -72,26 +73,6 @@ final class PrettyArrayService
         }
 
         return require $filename;
-    }
-
-    protected function format(array $array, int $pad = 1): string
-    {
-        $keys_size  = $this->sizeKeys($array);
-        $pad_length = $this->pad_length * $pad;
-        $formatted  = '[' . PHP_EOL;
-
-        foreach ($array as $key => $value) {
-            $key   = $this->key($key, $keys_size + ($pad * 2));
-            $value = $this->value($value, $pad + 1);
-
-            $row = "{$key}=> {$value}," . PHP_EOL;
-
-            $formatted .= $this->pad($pad_length, $row);
-        }
-
-        $formatted .= $this->pad($pad_length - 6, ']');
-
-        return $formatted;
     }
 
     protected function pad(int $pad_length = 0, string $value = '', $type = STR_PAD_LEFT): string

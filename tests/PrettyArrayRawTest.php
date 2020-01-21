@@ -1,47 +1,39 @@
 <?php
 
-namespace Tests\Services;
-
-use Helldar\PrettyArray\Exceptions\FileDoesntExistsException;
-use Helldar\PrettyArray\Services\PrettyArrayService;
-use PHPUnit\Framework\TestCase;
+namespace Tests;
 
 class PrettyArrayRawTest extends TestCase
 {
-    protected $source = __DIR__ . DIRECTORY_SEPARATOR . 'files/source.php';
-
-    protected $as_string = __DIR__ . DIRECTORY_SEPARATOR . 'files/raw/as-string.txt';
-
-    protected $not_string = __DIR__ . DIRECTORY_SEPARATOR . 'files/raw/not-string.txt';
-
     /**
-     * @throws FileDoesntExistsException
+     * @throws \Helldar\PrettyArray\Exceptions\FileDoesntExistsException
      */
     public function testAsString()
     {
-        $service = new PrettyArrayService();
+        $service = $this->service();
         $service->setKeyAsString();
 
-        $content = $service->getRaw($this->source);
+        $array     = $this->requireSource();
+        $formatted = $service->format($array);
 
-        $this->assertEquals(
-            trim(file_get_contents($this->as_string)),
-            $content
+        $this->assertSame(
+            trim($this->getFile('raw/as-string.txt')),
+            $formatted
         );
     }
 
     /**
-     * @throws FileDoesntExistsException
+     * @throws \Helldar\PrettyArray\Exceptions\FileDoesntExistsException
      */
     public function testStoreNotString()
     {
-        $service = new PrettyArrayService();
+        $service = $this->service();
 
-        $content = $service->getRaw($this->source);
+        $array     = $this->requireSource();
+        $formatted = $service->format($array);
 
-        $this->assertEquals(
-            trim(file_get_contents($this->not_string)),
-            $content
+        $this->assertSame(
+            trim($this->getFile('raw/not-string.txt')),
+            $formatted
         );
     }
 }

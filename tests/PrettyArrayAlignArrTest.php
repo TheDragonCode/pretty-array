@@ -3,7 +3,7 @@
 namespace Tests;
 
 use Helldar\PrettyArray\Exceptions\FileDoesntExistsException;
-use Helldar\PrettyArray\Services\PrettyArrayService;
+use Helldar\PrettyArray\Services\PrettyArray;
 use PHPUnit\Framework\TestCase;
 
 class PrettyArrayAlignArrTest extends TestCase
@@ -19,7 +19,7 @@ class PrettyArrayAlignArrTest extends TestCase
      */
     public function testAsString()
     {
-        $service = new PrettyArrayService();
+        $service = new PrettyArray();
         $service->setKeyAsString();
         $service->setEqualsAlign();
         $service->store($this->source, $this->source . '.3.php');
@@ -35,7 +35,7 @@ class PrettyArrayAlignArrTest extends TestCase
      */
     public function testNotString()
     {
-        $service = new PrettyArrayService();
+        $service = new PrettyArray();
         $service->setEqualsAlign();
         $service->store($this->source, $this->source . '.4.php');
 

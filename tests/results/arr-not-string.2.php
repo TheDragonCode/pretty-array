@@ -7,7 +7,12 @@ return [
     'qwerty' => 'qaz',
     'baq' => [
         0 => 'qwe',
-        0 => 'rty',
+        1 => 'rty',
         'asd' => 'zxc',
+    ],
+    'asdfgh' => [
+        'foobarbaz' => 'qwe',
+        2 => 'rty',
+        'qawsed' => 'zxc',
     ],
 ];

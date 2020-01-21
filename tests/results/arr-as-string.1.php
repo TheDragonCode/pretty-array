@@ -1,4 +1,6 @@
-[
+<?php
+
+return [
     'foo' => 1,
     'bar' => 2,
     'baz' => 3,
@@ -8,4 +10,9 @@
         '1' => 'rty',
         'asd' => 'zxc',
     ],
-]
+    'asdfgh' => [
+        'foobarbaz' => 'qwe',
+        '2' => 'rty',
+        'qawsed' => 'zxc',
+    ],
+];
