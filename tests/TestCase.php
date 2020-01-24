@@ -12,11 +12,9 @@ abstract class TestCase extends TestCaseFramework
         return new PrettyArray();
     }
 
-    protected function path(string $filename, bool $is_source = true): string
+    protected function path(string $filename): string
     {
-        $dir = $is_source ? 'files' : 'results';
-
-        return implode(DIRECTORY_SEPARATOR, [__DIR__, $dir, $filename]);
+        return implode(DIRECTORY_SEPARATOR, [__DIR__, 'stubs', $filename]);
     }
 
     protected function getFile(string $filename): string

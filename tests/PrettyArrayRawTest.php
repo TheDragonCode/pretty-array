@@ -4,9 +4,6 @@ namespace Tests;
 
 class PrettyArrayRawTest extends TestCase
 {
-    /**
-     * @throws \Helldar\PrettyArray\Exceptions\FileDoesntExistsException
-     */
     public function testAsString()
     {
         $service = $this->service();
@@ -16,14 +13,11 @@ class PrettyArrayRawTest extends TestCase
         $formatted = $service->format($array);
 
         $this->assertSame(
-            trim($this->getFile('raw/as-string.txt')),
-            $formatted
+            $this->getFile('as-string.txt'),
+            $formatted . PHP_EOL
         );
     }
 
-    /**
-     * @throws \Helldar\PrettyArray\Exceptions\FileDoesntExistsException
-     */
     public function testStoreNotString()
     {
         $service = $this->service();
@@ -32,8 +26,8 @@ class PrettyArrayRawTest extends TestCase
         $formatted = $service->format($array);
 
         $this->assertSame(
-            trim($this->getFile('raw/not-string.txt')),
-            $formatted
+            $this->getFile('not-string.txt'),
+            $formatted . PHP_EOL
         );
     }
 }

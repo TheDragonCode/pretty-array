@@ -52,7 +52,7 @@ final class PrettyArray
 
             $row = "{$key} => {$value}," . PHP_EOL;
 
-            $formatted .= $this->pad($pad_length, $row);
+            $formatted .= $this->pad($pad_length, $row, $key);
         }
 
         $formatted .= $this->pad($pad_length - 6, ']');
@@ -75,11 +75,14 @@ final class PrettyArray
         return require $filename;
     }
 
-    protected function pad(int $pad_length = 0, string $value = '', $type = STR_PAD_LEFT): string
+    protected function pad(int $pad_length = 0, string $value = '', $key = null, $type = STR_PAD_LEFT): string
     {
+        $collision = $this->equals_align && is_numeric($key)
+            ? 0 : -2;
+
         $pad_length += $type === STR_PAD_LEFT
             ? mb_strlen(trim($value)) + 2
-            : 0;
+            : $collision;
 
         return str_pad($value, $pad_length, ' ', $type);
     }
@@ -107,7 +110,11 @@ final class PrettyArray
             return $value;
         }
 
-        return $this->pad($keys_size + $this->pad_length - 2, $value, STR_PAD_RIGHT);
+        return $this->pad(
+            $keys_size + $this->pad_length - 2,
+            $value,
+            null,
+            STR_PAD_RIGHT);
     }
 
     protected function sizeKeys(array $array): int
