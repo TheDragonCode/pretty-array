@@ -4,7 +4,7 @@ namespace Tests;
 
 use Helldar\PrettyArray\Services\File;
 
-class PrettyArrayStoringText extends TestCase
+class FormatterStoringText extends TestCase
 {
     public function testStoring()
     {

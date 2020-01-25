@@ -2,18 +2,19 @@
 
 namespace Tests;
 
-class PrettyArrayRawTest extends TestCase
+class FormatterAlignRawTest extends TestCase
 {
     public function testAsString()
     {
         $service = $this->service();
         $service->setKeyAsString();
+        $service->setEqualsAlign();
 
         $array     = $this->requireSource();
         $formatted = $service->raw($array);
 
         $this->assertSame(
-            $this->getFile('as-string.txt'),
+            $this->getFile('align-as-string.txt'),
             $formatted . PHP_EOL
         );
     }
@@ -21,12 +22,13 @@ class PrettyArrayRawTest extends TestCase
     public function testStoreNotString()
     {
         $service = $this->service();
+        $service->setEqualsAlign();
 
         $array     = $this->requireSource();
         $formatted = $service->raw($array);
 
         $this->assertSame(
-            $this->getFile('not-string.txt'),
+            $this->getFile('align-not-string.txt'),
             $formatted . PHP_EOL
         );
     }
