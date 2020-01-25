@@ -2,7 +2,6 @@
 
 namespace Helldar\PrettyArray\Services;
 
-use Helldar\PrettyArray\Exceptions\FileDoesntExistsException;
 use Helldar\Support\Facades\Arr;
 
 final class Formatter
@@ -46,22 +45,6 @@ final class Formatter
         }
 
         return $formatted . $this->pad(']', $pad_length - $this->pad_length);
-    }
-
-    /**
-     * @param string $filename
-     *
-     * @throws FileDoesntExistsException
-     *
-     * @return array
-     */
-    protected function load(string $filename): array
-    {
-        if (! file_exists($filename)) {
-            throw new FileDoesntExistsException($filename);
-        }
-
-        return require $filename;
     }
 
     protected function pad(string $value, int $pad = 1, $type = STR_PAD_LEFT): string
