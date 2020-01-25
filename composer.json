@@ -21,6 +21,7 @@
         "andrey-helldar/support": "^1.15"
     },
     "require-dev": {
+        "phpstan/phpstan": "^0.12.7",
         "phpunit/phpunit": "^8.0"
     },
     "suggest": {
