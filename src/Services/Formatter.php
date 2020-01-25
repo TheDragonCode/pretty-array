@@ -13,7 +13,7 @@ final class Formatter
 
     protected $pad_length = 4;
 
-    protected $line_break = "\r\n";
+    protected $line_break = PHP_EOL;
 
     public static function make(): self
     {
