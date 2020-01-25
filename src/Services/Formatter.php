@@ -2,13 +2,8 @@
 
 namespace Helldar\PrettyArray\Services;
 
+use Helldar\PrettyArray\Exceptions\FileDoesntExistsException;
 use Helldar\Support\Facades\Arr;
-
-use function array_keys;
-use function is_array;
-use function is_numeric;
-use function mb_strlen;
-use function str_pad;
 
 final class Formatter
 {
@@ -17,6 +12,8 @@ final class Formatter
     protected $equals_align = false;
 
     protected $pad_length = 4;
+
+    protected $line_break = PHP_EOL;
 
     public static function make(): self
     {
@@ -37,18 +34,34 @@ final class Formatter
     {
         $keys_size  = $this->sizeKeys($array);
         $pad_length = $this->pad_length * $pad;
-        $formatted  = '[' . PHP_EOL;
+        $formatted  = '[' . $this->line_break;
 
         foreach ($array as $key => $value) {
             $key   = $this->key($key, $keys_size);
             $value = $this->value($value, $pad + 1);
 
-            $row = "{$key} => {$value}," . PHP_EOL;
+            $row = "{$key} => {$value}," . $this->line_break;
 
             $formatted .= $this->pad($row, $pad_length);
         }
 
         return $formatted . $this->pad(']', $pad_length - $this->pad_length);
+    }
+
+    /**
+     * @param string $filename
+     *
+     * @throws FileDoesntExistsException
+     *
+     * @return array
+     */
+    protected function load(string $filename): array
+    {
+        if (! file_exists($filename)) {
+            throw new FileDoesntExistsException($filename);
+        }
+
+        return require $filename;
     }
 
     protected function pad(string $value, int $pad = 1, $type = STR_PAD_LEFT): string
