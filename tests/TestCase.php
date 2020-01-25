@@ -2,14 +2,14 @@
 
 namespace Tests;
 
-use Helldar\PrettyArray\Services\PrettyArray;
+use Helldar\PrettyArray\Services\Formatter;
 use PHPUnit\Framework\TestCase as TestCaseFramework;
 
 abstract class TestCase extends TestCaseFramework
 {
-    protected function service(): PrettyArray
+    protected function service(): Formatter
     {
-        return new PrettyArray();
+        return Formatter::make();
     }
 
     protected function path(string $filename): string

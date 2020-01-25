@@ -12,13 +12,18 @@ use function mb_strlen;
 use function str_pad;
 use function trim;
 
-final class PrettyArray
+final class Formatter
 {
     protected $key_as_string = false;
 
     protected $equals_align = false;
 
     protected $pad_length = 4;
+
+    public static function make(): self
+    {
+        return new static();
+    }
 
     public function setKeyAsString(): void
     {
