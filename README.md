@@ -5,10 +5,14 @@ Simple conversion of an array to a pretty view.
 ![pretty-array](https://user-images.githubusercontent.com/10347617/73126548-1e703a00-3fc5-11ea-8b49-c2101031bdc8.png)
 
 <p align="center">
-    <a href="https://styleci.io/repos/219764491"><img src="https://styleci.io/repos/219764491/shield" alt="StyleCI" /></a>
     <a href="https://packagist.org/packages/andrey-helldar/pretty-array"><img src="https://img.shields.io/packagist/dt/andrey-helldar/pretty-array.svg?style=flat-square" alt="Total Downloads" /></a>
     <a href="https://packagist.org/packages/andrey-helldar/pretty-array"><img src="https://poser.pugx.org/andrey-helldar/pretty-array/v/stable?format=flat-square" alt="Latest Stable Version" /></a>
     <a href="https://packagist.org/packages/andrey-helldar/pretty-array"><img src="https://poser.pugx.org/andrey-helldar/pretty-array/v/unstable?format=flat-square" alt="Latest Unstable Version" /></a>
+</p>
+
+<p align="center">
+    <a href="https://styleci.io/repos/219764491"><img src="https://styleci.io/repos/219764491/shield" alt="StyleCI" /></a>
+    <a href="https://travis-ci.org/andrey-helldar/pretty-array"><img src="https://travis-ci.org/andrey-helldar/pretty-array.svg?branch=master" alt="Travis-CI" /></a>
     <a href="LICENSE"><img src="https://poser.pugx.org/andrey-helldar/pretty-array/license?format=flat-square" alt="License" /></a>
 </p>
 
