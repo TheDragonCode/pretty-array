@@ -23,8 +23,9 @@ class File
     /**
      * @param string $filename
      *
-     * @return array
      * @throws \Helldar\PrettyArray\Exceptions\FileDoesntExistsException
+     *
+     * @return array
      */
     public function load(string $filename): array
     {
