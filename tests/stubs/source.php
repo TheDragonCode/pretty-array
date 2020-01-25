@@ -1,19 +1,19 @@
 <?php
 
-return [
-    'foo'    => 1,
-    'bar'    => 2,
-    'baz'    => 3,
+return array (
+    'foo' => 1,
+    'bar' => 2,
+    'baz' => 3,
     'qwerty' => 'qaz',
-    'baq'    => [
-        0     => 'qwe',
-        '1'   => 'rty',
+    'baq' => array (
+        0 => 'qwe',
+        '1' => 'rty',
         'asd' => 'zxc',
-    ],
-    'asdfgh' => [
+    ),
+    'asdfgh' => array (
         'foobarbaz' => 'qwe',
-        2           => 'rty',
-        'qawsed'    => 'zxc',
-    ],
+        2 => 'rty',
+        'qawsed' => 'zxc',
+    ),
     2 => 'iop',
-];
+);

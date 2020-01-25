@@ -1,5 +1,9 @@
 preset: psr2
 
+finder:
+    exclude:
+        - "tests/stubs"
+
 enabled:
     - align_double_arrow
     - align_equals
