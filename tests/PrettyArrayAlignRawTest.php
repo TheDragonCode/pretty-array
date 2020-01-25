@@ -11,7 +11,7 @@ class PrettyArrayAlignRawTest extends TestCase
         $service->setEqualsAlign();
 
         $array     = $this->requireSource();
-        $formatted = $service->format($array);
+        $formatted = $service->raw($array);
 
         $this->assertSame(
             $this->getFile('align-as-string.txt'),
@@ -25,7 +25,7 @@ class PrettyArrayAlignRawTest extends TestCase
         $service->setEqualsAlign();
 
         $array     = $this->requireSource();
-        $formatted = $service->format($array);
+        $formatted = $service->raw($array);
 
         $this->assertSame(
             $this->getFile('align-not-string.txt'),

@@ -37,7 +37,7 @@ final class Formatter
 
     public function store(string $filename, array $array)
     {
-        $content = $this->format($array);
+        $content = $this->raw($array);
 
         file_put_contents(
             $filename,
@@ -45,7 +45,7 @@ final class Formatter
         );
     }
 
-    public function format(array $array, int $pad = 1): string
+    public function raw(array $array, int $pad = 1): string
     {
         $keys_size  = $this->sizeKeys($array);
         $pad_length = $this->pad_length * $pad;
@@ -95,7 +95,7 @@ final class Formatter
     protected function value($value, int $pad = 0)
     {
         if (is_array($value)) {
-            return $this->format($value, $pad);
+            return $this->raw($value, $pad);
         }
 
         if (is_numeric($value)) {

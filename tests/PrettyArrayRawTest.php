@@ -10,7 +10,7 @@ class PrettyArrayRawTest extends TestCase
         $service->setKeyAsString();
 
         $array     = $this->requireSource();
-        $formatted = $service->format($array);
+        $formatted = $service->raw($array);
 
         $this->assertSame(
             $this->getFile('as-string.txt'),
@@ -23,7 +23,7 @@ class PrettyArrayRawTest extends TestCase
         $service = $this->service();
 
         $array     = $this->requireSource();
-        $formatted = $service->format($array);
+        $formatted = $service->raw($array);
 
         $this->assertSame(
             $this->getFile('not-string.txt'),
