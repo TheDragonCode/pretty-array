@@ -2,10 +2,7 @@
 
 namespace Tests;
 
-use function file_get_contents;
 use Helldar\PrettyArray\Services\Formatter;
-
-use function implode;
 use PHPUnit\Framework\TestCase as TestCaseFramework;
 
 abstract class TestCase extends TestCaseFramework

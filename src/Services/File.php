@@ -2,6 +2,7 @@
 
 namespace Helldar\PrettyArray\Services;
 
+use Helldar\PrettyArray\Exceptions\FileDoesntExistsException;
 use Helldar\Support\Facades\File as FileSupport;
 use Helldar\Support\Tools\Stub;
 
@@ -9,7 +10,7 @@ class File
 {
     protected $content;
 
-    public function __construct(string $content)
+    public function __construct(string $content = null)
     {
         $this->content = $content;
     }
@@ -17,6 +18,21 @@ class File
     public static function make(string $content)
     {
         return new static($content);
+    }
+
+    /**
+     * @param string $filename
+     *
+     * @return array
+     * @throws \Helldar\PrettyArray\Exceptions\FileDoesntExistsException
+     */
+    public function load(string $filename): array
+    {
+        if (! file_exists($filename)) {
+            throw new FileDoesntExistsException($filename);
+        }
+
+        return require $filename;
     }
 
     public function store(string $path)

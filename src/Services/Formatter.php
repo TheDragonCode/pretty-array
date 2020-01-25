@@ -2,11 +2,9 @@
 
 namespace Helldar\PrettyArray\Services;
 
-use function array_keys;
-use function file_exists;
-
-use Helldar\PrettyArray\Exceptions\FileDoesntExistsException;
 use Helldar\Support\Facades\Arr;
+
+use function array_keys;
 use function is_array;
 use function is_numeric;
 use function mb_strlen;
@@ -51,22 +49,6 @@ final class Formatter
         }
 
         return $formatted . $this->pad(']', $pad_length - $this->pad_length);
-    }
-
-    /**
-     * @param string $filename
-     *
-     * @throws FileDoesntExistsException
-     *
-     * @return array
-     */
-    protected function load(string $filename): array
-    {
-        if (! file_exists($filename)) {
-            throw new FileDoesntExistsException($filename);
-        }
-
-        return require $filename;
     }
 
     protected function pad(string $value, int $pad = 1, $type = STR_PAD_LEFT): string
