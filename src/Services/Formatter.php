@@ -2,11 +2,11 @@
 
 namespace Helldar\PrettyArray\Services;
 
-use Helldar\PrettyArray\Exceptions\FileDoesntExistsException;
-use Helldar\Support\Facades\Arr;
-
 use function array_keys;
 use function file_exists;
+
+use Helldar\PrettyArray\Exceptions\FileDoesntExistsException;
+use Helldar\Support\Facades\Arr;
 use function is_array;
 use function is_numeric;
 use function mb_strlen;
@@ -56,8 +56,9 @@ final class Formatter
     /**
      * @param string $filename
      *
-     * @return array
      * @throws FileDoesntExistsException
+     *
+     * @return array
      */
     protected function load(string $filename): array
     {
