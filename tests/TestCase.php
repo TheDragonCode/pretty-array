@@ -5,6 +5,9 @@ namespace Tests;
 use Helldar\PrettyArray\Services\Formatter;
 use PHPUnit\Framework\TestCase as TestCaseFramework;
 
+use function file_get_contents;
+use function implode;
+
 abstract class TestCase extends TestCaseFramework
 {
     protected function service(): Formatter
