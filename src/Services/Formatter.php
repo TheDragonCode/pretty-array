@@ -66,7 +66,7 @@ final class Formatter
             return $value;
         }
 
-        return "'{$value}'";
+        return "'" . addslashes($value) . "'";
     }
 
     protected function key($key, int $size = 0)
