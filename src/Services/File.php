@@ -15,7 +15,7 @@ class File
         $this->content = $content;
     }
 
-    public static function make(string $content)
+    public static function make(string $content = null)
     {
         return new static($content);
     }
