@@ -50,7 +50,7 @@ final class Formatter
     protected function pad(string $value, int $pad = 1, $type = STR_PAD_LEFT): string
     {
         $pad += $type === STR_PAD_LEFT
-            ? mb_strlen($value)
+            ? strlen($value)
             : 2;
 
         return str_pad($value, $pad, ' ', $type);
