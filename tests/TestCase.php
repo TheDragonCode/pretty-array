@@ -2,6 +2,7 @@
 
 namespace Tests;
 
+use Helldar\PrettyArray\Services\File;
 use Helldar\PrettyArray\Services\Formatter;
 use PHPUnit\Framework\TestCase as TestCaseFramework;
 
@@ -24,11 +25,23 @@ abstract class TestCase extends TestCaseFramework
         );
     }
 
+    /**
+     * @param string $filename
+     *
+     * @return array
+     * @throws \Helldar\PrettyArray\Exceptions\FileDoesntExistsException
+     */
     protected function requireFile(string $filename): array
     {
-        return require $this->path($filename);
+        return File::make()->load(
+            $this->path($filename)
+        );
     }
 
+    /**
+     * @return array
+     * @throws \Helldar\PrettyArray\Exceptions\FileDoesntExistsException
+     */
     protected function requireSource(): array
     {
         return $this->requireFile('source.php');

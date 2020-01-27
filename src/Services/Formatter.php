@@ -2,10 +2,14 @@
 
 namespace Helldar\PrettyArray\Services;
 
+use Helldar\PrettyArray\Concerns\HasCases;
+use Helldar\PrettyArray\Contracts\Caseable;
 use Helldar\Support\Facades\Arr;
 
-final class Formatter
+final class Formatter implements Caseable
 {
+    use HasCases;
+
     protected $key_as_string = false;
 
     protected $equals_align = false;
@@ -31,6 +35,8 @@ final class Formatter
 
     public function raw(array $array, int $pad = 1): string
     {
+        $this->convertKeysCase($array);
+
         $keys_size  = $this->sizeKeys($array);
         $pad_length = $this->pad_length * $pad;
         $formatted  = '[' . $this->line_break;

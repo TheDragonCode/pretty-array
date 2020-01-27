@@ -1,0 +1,312 @@
+<?php
+
+namespace Tests;
+
+use Helldar\PrettyArray\Contracts\Caseable;
+
+class FormatterSwitchCasesTest extends TestCase
+{
+    /**
+     * @throws \Helldar\PrettyArray\Exceptions\FileDoesntExistsException
+     * @throws \Helldar\PrettyArray\Exceptions\UnknownCaseTypeException
+     */
+    public function testCamelAsString()
+    {
+        $service = $this->service();
+        $service->setKeyAsString();
+        $service->setCase(Caseable::CAMEL_CASE);
+
+        $array     = $this->requireSource();
+        $formatted = $service->raw($array);
+
+        $this->assertSame(
+            $this->getFile('case-camel-as-string.txt'),
+            $formatted . PHP_EOL
+        );
+    }
+
+    /**
+     * @throws \Helldar\PrettyArray\Exceptions\FileDoesntExistsException
+     * @throws \Helldar\PrettyArray\Exceptions\UnknownCaseTypeException
+     */
+    public function testCamelNotString()
+    {
+        $service = $this->service();
+        $service->setCase(Caseable::CAMEL_CASE);
+
+        $array     = $this->requireSource();
+        $formatted = $service->raw($array);
+
+        $this->assertSame(
+            $this->getFile('case-camel-not-string.txt'),
+            $formatted . PHP_EOL
+        );
+    }
+
+    /**
+     * @throws \Helldar\PrettyArray\Exceptions\FileDoesntExistsException
+     * @throws \Helldar\PrettyArray\Exceptions\UnknownCaseTypeException
+     */
+    public function testCamelAlignAsString()
+    {
+        $service = $this->service();
+        $service->setKeyAsString();
+        $service->setEqualsAlign();
+        $service->setCase(Caseable::CAMEL_CASE);
+
+        $array     = $this->requireSource();
+        $formatted = $service->raw($array);
+
+        $this->assertSame(
+            $this->getFile('case-camel-align-as-string.txt'),
+            $formatted . PHP_EOL
+        );
+    }
+
+    /**
+     * @throws \Helldar\PrettyArray\Exceptions\FileDoesntExistsException
+     * @throws \Helldar\PrettyArray\Exceptions\UnknownCaseTypeException
+     */
+    public function testCamelAlignNotString()
+    {
+        $service = $this->service();
+        $service->setEqualsAlign();
+        $service->setCase(Caseable::CAMEL_CASE);
+
+        $array     = $this->requireSource();
+        $formatted = $service->raw($array);
+
+        $this->assertSame(
+            $this->getFile('case-camel-align-not-string.txt'),
+            $formatted . PHP_EOL
+        );
+    }
+
+    /**
+     * @throws \Helldar\PrettyArray\Exceptions\FileDoesntExistsException
+     * @throws \Helldar\PrettyArray\Exceptions\UnknownCaseTypeException
+     */
+    public function testKebabAsString()
+    {
+        $service = $this->service();
+        $service->setKeyAsString();
+        $service->setCase(Caseable::KEBAB_CASE);
+
+        $array     = $this->requireSource();
+        $formatted = $service->raw($array);
+
+        $this->assertSame(
+            $this->getFile('case-kebab-as-string.txt'),
+            $formatted . PHP_EOL
+        );
+    }
+
+    /**
+     * @throws \Helldar\PrettyArray\Exceptions\FileDoesntExistsException
+     * @throws \Helldar\PrettyArray\Exceptions\UnknownCaseTypeException
+     */
+    public function testKebabNotString()
+    {
+        $service = $this->service();
+        $service->setCase(Caseable::KEBAB_CASE);
+
+        $array     = $this->requireSource();
+        $formatted = $service->raw($array);
+
+        $this->assertSame(
+            $this->getFile('case-kebab-not-string.txt'),
+            $formatted . PHP_EOL
+        );
+    }
+
+    /**
+     * @throws \Helldar\PrettyArray\Exceptions\FileDoesntExistsException
+     * @throws \Helldar\PrettyArray\Exceptions\UnknownCaseTypeException
+     */
+    public function testKebabAlignAsString()
+    {
+        $service = $this->service();
+        $service->setKeyAsString();
+        $service->setEqualsAlign();
+        $service->setCase(Caseable::KEBAB_CASE);
+
+        $array     = $this->requireSource();
+        $formatted = $service->raw($array);
+
+        $this->assertSame(
+            $this->getFile('case-kebab-align-as-string.txt'),
+            $formatted . PHP_EOL
+        );
+    }
+
+    /**
+     * @throws \Helldar\PrettyArray\Exceptions\FileDoesntExistsException
+     * @throws \Helldar\PrettyArray\Exceptions\UnknownCaseTypeException
+     */
+    public function testKebabAlignNotString()
+    {
+        $service = $this->service();
+        $service->setEqualsAlign();
+        $service->setCase(Caseable::KEBAB_CASE);
+
+        $array     = $this->requireSource();
+        $formatted = $service->raw($array);
+
+        $this->assertSame(
+            $this->getFile('case-kebab-align-not-string.txt'),
+            $formatted . PHP_EOL
+        );
+    }
+
+    /**
+     * @throws \Helldar\PrettyArray\Exceptions\FileDoesntExistsException
+     * @throws \Helldar\PrettyArray\Exceptions\UnknownCaseTypeException
+     */
+    public function testPascalAsString()
+    {
+        $service = $this->service();
+        $service->setKeyAsString();
+        $service->setCase(Caseable::PASCAL_CASE);
+
+        $array     = $this->requireSource();
+        $formatted = $service->raw($array);
+
+        $this->assertSame(
+            $this->getFile('case-pascal-as-string.txt'),
+            $formatted . PHP_EOL
+        );
+    }
+
+    /**
+     * @throws \Helldar\PrettyArray\Exceptions\FileDoesntExistsException
+     * @throws \Helldar\PrettyArray\Exceptions\UnknownCaseTypeException
+     */
+    public function testPascalNotString()
+    {
+        $service = $this->service();
+        $service->setCase(Caseable::PASCAL_CASE);
+
+        $array     = $this->requireSource();
+        $formatted = $service->raw($array);
+
+        $this->assertSame(
+            $this->getFile('case-pascal-not-string.txt'),
+            $formatted . PHP_EOL
+        );
+    }
+
+    /**
+     * @throws \Helldar\PrettyArray\Exceptions\FileDoesntExistsException
+     * @throws \Helldar\PrettyArray\Exceptions\UnknownCaseTypeException
+     */
+    public function testPascalAlignAsString()
+    {
+        $service = $this->service();
+        $service->setKeyAsString();
+        $service->setEqualsAlign();
+        $service->setCase(Caseable::PASCAL_CASE);
+
+        $array     = $this->requireSource();
+        $formatted = $service->raw($array);
+
+        $this->assertSame(
+            $this->getFile('case-pascal-align-as-string.txt'),
+            $formatted . PHP_EOL
+        );
+    }
+
+    /**
+     * @throws \Helldar\PrettyArray\Exceptions\FileDoesntExistsException
+     * @throws \Helldar\PrettyArray\Exceptions\UnknownCaseTypeException
+     */
+    public function testPascalAlignNotString()
+    {
+        $service = $this->service();
+        $service->setEqualsAlign();
+        $service->setCase(Caseable::PASCAL_CASE);
+
+        $array     = $this->requireSource();
+        $formatted = $service->raw($array);
+
+        $this->assertSame(
+            $this->getFile('case-pascal-align-not-string.txt'),
+            $formatted . PHP_EOL
+        );
+    }
+
+    /**
+     * @throws \Helldar\PrettyArray\Exceptions\FileDoesntExistsException
+     * @throws \Helldar\PrettyArray\Exceptions\UnknownCaseTypeException
+     */
+    public function testSnakeAsString()
+    {
+        $service = $this->service();
+        $service->setKeyAsString();
+        $service->setCase(Caseable::SNAKE_CASE);
+
+        $array     = $this->requireSource();
+        $formatted = $service->raw($array);
+
+        $this->assertSame(
+            $this->getFile('case-snake-as-string.txt'),
+            $formatted . PHP_EOL
+        );
+    }
+
+    /**
+     * @throws \Helldar\PrettyArray\Exceptions\FileDoesntExistsException
+     * @throws \Helldar\PrettyArray\Exceptions\UnknownCaseTypeException
+     */
+    public function testSnakeNotString()
+    {
+        $service = $this->service();
+        $service->setCase(Caseable::SNAKE_CASE);
+
+        $array     = $this->requireSource();
+        $formatted = $service->raw($array);
+
+        $this->assertSame(
+            $this->getFile('case-snake-not-string.txt'),
+            $formatted . PHP_EOL
+        );
+    }
+
+    /**
+     * @throws \Helldar\PrettyArray\Exceptions\FileDoesntExistsException
+     * @throws \Helldar\PrettyArray\Exceptions\UnknownCaseTypeException
+     */
+    public function testSnakeAlignAsString()
+    {
+        $service = $this->service();
+        $service->setKeyAsString();
+        $service->setEqualsAlign();
+        $service->setCase(Caseable::SNAKE_CASE);
+
+        $array     = $this->requireSource();
+        $formatted = $service->raw($array);
+
+        $this->assertSame(
+            $this->getFile('case-snake-align-as-string.txt'),
+            $formatted . PHP_EOL
+        );
+    }
+
+    /**
+     * @throws \Helldar\PrettyArray\Exceptions\FileDoesntExistsException
+     * @throws \Helldar\PrettyArray\Exceptions\UnknownCaseTypeException
+     */
+    public function testSnakeAlignNotString()
+    {
+        $service = $this->service();
+        $service->setEqualsAlign();
+        $service->setCase(Caseable::SNAKE_CASE);
+
+        $array     = $this->requireSource();
+        $formatted = $service->raw($array);
+
+        $this->assertSame(
+            $this->getFile('case-snake-align-not-string.txt'),
+            $formatted . PHP_EOL
+        );
+    }
+}

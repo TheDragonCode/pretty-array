@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1a5974113907416d6c4025892a5fa907",
+    "content-hash": "41d56955e12e42f2111eb21b3de9e739",
     "packages": [
         {
             "name": "andrey-helldar/support",
-            "version": "v1.15.3",
+            "version": "v1.16.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/andrey-helldar/support.git",
-                "reference": "2ffda4a09331d931562b8f84b7378d057d52d9fb"
+                "reference": "859dbda14c96880ccb6d5cec7bbe61a17a6089d1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/andrey-helldar/support/zipball/2ffda4a09331d931562b8f84b7378d057d52d9fb",
-                "reference": "2ffda4a09331d931562b8f84b7378d057d52d9fb",
+                "url": "https://api.github.com/repos/andrey-helldar/support/zipball/859dbda14c96880ccb6d5cec7bbe61a17a6089d1",
+                "reference": "859dbda14c96880ccb6d5cec7bbe61a17a6089d1",
                 "shasum": ""
             },
             "require": {
@@ -73,7 +73,7 @@
                 "yii",
                 "yii2"
             ],
-            "time": "2020-01-26T13:58:08+00:00"
+            "time": "2020-01-27T08:08:38+00:00"
         }
     ],
     "packages-dev": [

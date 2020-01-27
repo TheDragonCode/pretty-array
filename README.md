@@ -17,6 +17,18 @@ Simple conversion of an array to a pretty view.
 </p>
 
 
+## Content
+
+* [Installation](#installation)
+* [Introduction](#introduction)
+* [Using](#using)
+    * [Saving numeric keys without alignment](#saving-numeric-keys-without-alignment)
+    * [Saving string keys without alignment](#saving-string-keys-without-alignment)
+    * [Saving numeric keys with alignment](#saving-numeric-keys-with-alignment)
+    * [Saving string keys with alignment](#saving-string-keys-with-alignment)
+* [Copyright and License](#copyright-and-license)
+
+
 ## Installation
 
 To get the latest version of `Pretty Array` package, simply require the project using [Composer](https://getcomposer.org):
@@ -247,6 +259,7 @@ Result:
 ]
 ```
 
+
 ### Saving string keys with alignment
 
 ```php
@@ -279,6 +292,50 @@ Result:
     '2'      => 'iop',
 ]
 ```
+
+
+### Change key case
+
+```php
+use Helldar\PrettyArray\Contracts\Caseable;
+use Helldar\PrettyArray\Services\Formatter;
+
+$service = Formatter::make();
+$service->setCase(Caseable::PASCAL_CASE);
+
+return $service->raw($array);
+```
+
+Result:
+```text
+[
+    'Foo' => 1,
+    'Bar' => 2,
+    'Baz' => 3,
+    'QweRty' => 'qaz',
+    'Baq' => [
+        0 => 'qwe',
+        1 => 'rty',
+        'Asd' => 'zxc',
+    ],
+    'AsdFgh' => [
+        'FooBarBaz' => 'qwe',
+        2 => 'rty',
+        'QawSed' => 'zxc',
+    ],
+    2 => 'iop',
+]
+```
+
+The following options are available:
+
+* camelCase (`Helldar\PrettyArray\Contracts\Caseable::CAMEL_CASE`);
+* kebab-case (`Helldar\PrettyArray\Contracts\Caseable::KEBAB_CASE`);
+* PascalCase (`Helldar\PrettyArray\Contracts\Caseable::PASCAL_CASE`);
+* snake_case (`Helldar\PrettyArray\Contracts\Caseable::SNAKE_CASE`);
+* no case (`Helldar\PrettyArray\Contracts\Caseable::NO_CASE`). By default;
+
+`NO_CASE` means that key register processing will not be performed.
 
 
 ### Storing file
