@@ -31,11 +31,11 @@ trait HasCases
 
         $result = [];
 
-        array_walk($array, function ($value, $key) use (&$result) {
+        foreach ($array as $key => $item) {
             $key = $this->convertKeyCase($key);
 
             $result[$key] = $value;
-        });
+        }
 
         $array = $result;
     }
