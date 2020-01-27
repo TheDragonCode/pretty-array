@@ -92,7 +92,7 @@ This behavior includes [errors.php](https://github.com/andrey-helldar/lang-trans
 
 return [
     'unknownError' => 'Unknown Error',
-    '0'            => 'Unknown Error',
+    '0' => 'Unknown Error',
 
     '100' => 'Continue',
     '101' => 'Switching Protocols',
@@ -118,7 +118,7 @@ The peculiarity of the package is that it takes the values of the source file an
 
 return [
     'unknownError' => 'Unknown Error',
-    0            => 'Unknown Error',
+    0 => 'Unknown Error',
 
     100 => 'Continue',
     'Switching Protocols',
