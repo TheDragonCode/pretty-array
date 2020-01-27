@@ -26,6 +26,8 @@ Simple conversion of an array to a pretty view.
     * [Saving string keys without alignment](#saving-string-keys-without-alignment)
     * [Saving numeric keys with alignment](#saving-numeric-keys-with-alignment)
     * [Saving string keys with alignment](#saving-string-keys-with-alignment)
+    * [Change key case](#change-key-case)
+    * [Storing file](#storing-file)
 * [Copyright and License](#copyright-and-license)
 
 
