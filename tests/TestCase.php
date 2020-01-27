@@ -28,8 +28,9 @@ abstract class TestCase extends TestCaseFramework
     /**
      * @param string $filename
      *
-     * @return array
      * @throws \Helldar\PrettyArray\Exceptions\FileDoesntExistsException
+     *
+     * @return array
      */
     protected function requireFile(string $filename): array
     {
@@ -39,8 +40,9 @@ abstract class TestCase extends TestCaseFramework
     }
 
     /**
-     * @return array
      * @throws \Helldar\PrettyArray\Exceptions\FileDoesntExistsException
+     *
+     * @return array
      */
     protected function requireSource(): array
     {
