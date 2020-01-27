@@ -31,7 +31,7 @@ trait HasCases
 
         $result = [];
 
-        foreach ($array as $key => $item) {
+        foreach ($array as $key => $value) {
             $key = $this->convertKeyCase($key);
 
             $result[$key] = $value;
