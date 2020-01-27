@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "andrey-helldar/support",
-            "version": "v1.15.2",
+            "version": "v1.15.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/andrey-helldar/support.git",
-                "reference": "c41223996015c4c39b4ce48c31e5c062ac4538ad"
+                "reference": "2ffda4a09331d931562b8f84b7378d057d52d9fb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/andrey-helldar/support/zipball/c41223996015c4c39b4ce48c31e5c062ac4538ad",
-                "reference": "c41223996015c4c39b4ce48c31e5c062ac4538ad",
+                "url": "https://api.github.com/repos/andrey-helldar/support/zipball/2ffda4a09331d931562b8f84b7378d057d52d9fb",
+                "reference": "2ffda4a09331d931562b8f84b7378d057d52d9fb",
                 "shasum": ""
             },
             "require": {
@@ -73,7 +73,7 @@
                 "yii",
                 "yii2"
             ],
-            "time": "2020-01-25T18:03:39+00:00"
+            "time": "2020-01-26T13:58:08+00:00"
         }
     ],
     "packages-dev": [
@@ -499,16 +499,16 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "0.12.7",
+            "version": "0.12.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "07fa7958027fd98c567099bbcda5d6a0f2ec5197"
+                "reference": "62a552602b7586d82826231f2fd4cbfe39fe0b1d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/07fa7958027fd98c567099bbcda5d6a0f2ec5197",
-                "reference": "07fa7958027fd98c567099bbcda5d6a0f2ec5197",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/62a552602b7586d82826231f2fd4cbfe39fe0b1d",
+                "reference": "62a552602b7586d82826231f2fd4cbfe39fe0b1d",
                 "shasum": ""
             },
             "require": {
@@ -534,7 +534,7 @@
                 "MIT"
             ],
             "description": "PHPStan - PHP Static Analysis Tool",
-            "time": "2020-01-20T21:59:06+00:00"
+            "time": "2020-01-26T23:36:48+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
