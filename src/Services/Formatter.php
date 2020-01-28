@@ -65,7 +65,7 @@ final class Formatter implements Caseable
 
     protected function value($value, int $pad = 1)
     {
-        if (is_array($value)) {
+        if (! empty($value) && (is_array($value) || is_object($value))) {
             return $this->raw($value, $pad);
         }
 
