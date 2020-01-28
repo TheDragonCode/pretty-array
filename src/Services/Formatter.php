@@ -3,12 +3,13 @@
 namespace Helldar\PrettyArray\Services;
 
 use Helldar\PrettyArray\Concerns\HasCases;
+use Helldar\PrettyArray\Concerns\HasCastable;
 use Helldar\PrettyArray\Contracts\Caseable;
 use Helldar\Support\Facades\Arr;
 
 final class Formatter implements Caseable
 {
-    use HasCases;
+    use HasCases, HasCastable;
 
     protected $key_as_string = false;
 
@@ -68,11 +69,7 @@ final class Formatter implements Caseable
             return $this->raw($value, $pad);
         }
 
-        if (is_numeric($value)) {
-            return $value;
-        }
-
-        return "'" . addslashes($value) . "'";
+        return $this->castValue($value);
     }
 
     protected function key($key, int $size = 0)
