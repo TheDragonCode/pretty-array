@@ -44,13 +44,12 @@ class File
         return json_decode(file_get_contents($filename), true);
     }
 
-    public function store(string $path)
+    public function store(string $path): void
     {
         if ($this->isJson($path)) {
-            FileSupport::store(
-                $path,
-                json_encode($this->content, JSON_PRETTY_PRINT)
-            );
+            $this->storeAsJson($path);
+
+            return;
         }
 
         $content = Stub::replace(Stub::CONFIG_FILE, [
@@ -58,6 +57,14 @@ class File
         ]);
 
         FileSupport::store($path, $content);
+    }
+
+    public function storeAsJson(string $path): void
+    {
+        FileSupport::store(
+            $path,
+            json_encode($this->content, JSON_PRETTY_PRINT)
+        );
     }
 
     public function isJson(string $filename): bool
