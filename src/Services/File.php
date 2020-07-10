@@ -46,6 +46,13 @@ class File
 
     public function store(string $path)
     {
+        if ($this->isJson($path)) {
+            FileSupport::store(
+                $path,
+                json_encode($this->content, JSON_PRETTY_PRINT)
+            );
+        }
+
         $content = Stub::replace(Stub::CONFIG_FILE, [
             '{{slot}}' => $this->content,
         ]);
