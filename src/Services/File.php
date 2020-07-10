@@ -4,7 +4,6 @@ namespace Helldar\PrettyArray\Services;
 
 use Helldar\PrettyArray\Exceptions\FileDoesntExistsException;
 use Helldar\Support\Facades\File as FileSupport;
-use Helldar\Support\Facades\Str;
 use Helldar\Support\Tools\Stub;
 
 class File
@@ -34,24 +33,16 @@ class File
             throw new FileDoesntExistsException($filename);
         }
 
-        return $this->isJson($filename)
-            ? $this->loadJson($filename)
-            : require $filename;
+        return require $filename;
     }
 
-    public function loadJson(string $filename)
+    public function loadRaw(string $filename)
     {
-        return json_decode(file_get_contents($filename), true);
+        return file_get_contents($filename);
     }
 
     public function store(string $path): void
     {
-        if ($this->isJson($path)) {
-            $this->storeAsJson($path);
-
-            return;
-        }
-
         $content = Stub::replace(Stub::CONFIG_FILE, [
             '{{slot}}' => $this->content,
         ]);
@@ -59,18 +50,8 @@ class File
         FileSupport::store($path, $content);
     }
 
-    public function storeAsJson(string $path): void
+    public function storeRaw(string $path): void
     {
-        FileSupport::store(
-            $path,
-            json_encode($this->content, JSON_PRETTY_PRINT)
-        );
-    }
-
-    public function isJson(string $filename): bool
-    {
-        $extension = pathinfo($filename, PATHINFO_EXTENSION);
-
-        return Str::lower($extension) === 'json';
+        FileSupport::store($path, $this->content);
     }
 }
