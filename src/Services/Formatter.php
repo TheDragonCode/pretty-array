@@ -9,7 +9,8 @@ use Helldar\Support\Facades\Arr;
 
 final class Formatter implements Caseable
 {
-    use HasCases, HasCastable;
+    use HasCases;
+    use HasCastable;
 
     protected $key_as_string = false;
 
@@ -36,7 +37,7 @@ final class Formatter implements Caseable
 
     public function raw(array $array, int $pad = 1): string
     {
-        $this->convertKeysCase($array);
+        $array = $this->convertKeysCase($array);
 
         $keys_size  = $this->sizeKeys($array);
         $pad_length = $this->pad_length * $pad;
