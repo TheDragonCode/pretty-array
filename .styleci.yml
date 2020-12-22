@@ -2,6 +2,10 @@ preset: psr12
 
 risky: true
 
+finder:
+    exclude:
+        - "tests/stubs"
+
 enabled:
     - align_double_arrow
     - align_equals
