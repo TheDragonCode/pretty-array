@@ -3,7 +3,7 @@
 namespace Helldar\PrettyArray\Concerns;
 
 use Helldar\PrettyArray\Exceptions\UnknownCaseTypeException;
-use Helldar\Support\Facades\Str;
+use Helldar\Support\Facades\Helpers\Str;
 
 trait HasCases
 {

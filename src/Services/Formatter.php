@@ -5,7 +5,7 @@ namespace Helldar\PrettyArray\Services;
 use Helldar\PrettyArray\Concerns\HasCases;
 use Helldar\PrettyArray\Concerns\HasCastable;
 use Helldar\PrettyArray\Contracts\Caseable;
-use Helldar\Support\Facades\Arr;
+use Helldar\Support\Facades\Helpers\Arr;
 
 final class Formatter implements Caseable
 {
@@ -86,7 +86,7 @@ final class Formatter implements Caseable
 
     protected function sizeKeys(array $array): int
     {
-        $sizes = Arr::sizeOfMaxValue(
+        $sizes = Arr::longestStringLength(
             array_keys($array)
         );
 

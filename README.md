@@ -44,7 +44,7 @@ Instead, you may of course manually update your `require-dev` block and run `com
 ```json
 {
     "require-dev": {
-        "andrey-helldar/pretty-array": "^1.0"
+        "andrey-helldar/pretty-array": "^2.0"
     }
 }
 ```

@@ -3,8 +3,9 @@
 namespace Helldar\PrettyArray\Services;
 
 use Helldar\PrettyArray\Exceptions\FileDoesntExistsException;
-use Helldar\Support\Facades\File as FileSupport;
-use Helldar\Support\Tools\Stub;
+use Helldar\Support\Facades\Helpers\Filesystem\File as FileSupport;
+use Helldar\Support\Facades\Tools\Stub;
+use Helldar\Support\Tools\Stub as StubTool;
 
 class File
 {
@@ -43,7 +44,7 @@ class File
 
     public function store(string $path): void
     {
-        $content = Stub::replace(Stub::CONFIG_FILE, [
+        $content = Stub::replace(StubTool::PHP_ARRAY, [
             '{{slot}}' => $this->content,
         ]);
 
