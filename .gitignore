@@ -3,7 +3,9 @@ vendor/
 
 tests/files/source.php.*.php
 
-composer.lock
-
+*.bak
 *.cache
-*.log
+*.clover
+*.orig
+
+*.lock
