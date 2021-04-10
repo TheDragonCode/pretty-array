@@ -17,20 +17,6 @@ Simple conversion of an array to a pretty view.
 </p>
 
 
-## Content
-
-* [Installation](#installation)
-* [Introduction](#introduction)
-* [Using](#using)
-    * [Saving numeric keys without alignment](#saving-numeric-keys-without-alignment)
-    * [Saving string keys without alignment](#saving-string-keys-without-alignment)
-    * [Saving numeric keys with alignment](#saving-numeric-keys-with-alignment)
-    * [Saving string keys with alignment](#saving-string-keys-with-alignment)
-    * [Change key case](#change-key-case)
-    * [Storing file](#storing-file)
-* [Copyright and License](#copyright-and-license)
-
-
 ## Installation
 
 To get the latest version of `Pretty Array` package, simply require the project using [Composer](https://getcomposer.org):
@@ -44,11 +30,10 @@ Instead, you may of course manually update your `require-dev` block and run `com
 ```json
 {
     "require-dev": {
-        "andrey-helldar/pretty-array": "^2.0"
+        "andrey-helldar/pretty-array": "^2.2"
     }
 }
 ```
-
 
 ## Introduction
 
@@ -57,6 +42,7 @@ Instead, you may of course manually update your `require-dev` block and run `com
 The big minus of package [symfony/var-exporter](https://github.com/symfony/var-exporter) is that it works differently with numeric keys.
 
 For example, we have an array:
+
 ```php
 $array = [
     100 => 'foo',
@@ -69,6 +55,7 @@ $array = [
 ```
 
 When exporting through it, the file will contain the following content:
+
 ```php
 $array = [
     100 => 'foo',
@@ -82,13 +69,16 @@ $array = [
 
 > Q: Why do you think this is bad?
 
-This package has a framework-independent base. However, it was originally developed as an assistant for package [lang-translations](https://github.com/andrey-helldar/lang-translations).
+This package has a framework-independent base. However, it was originally developed as an assistant for
+package [lang-translations](https://github.com/andrey-helldar/lang-translations).
 
 This package allows you to publish language translations for the Laravel framework.
 
-A feature of the framework is that IDEs that help with development do not know how to read the numeric keys of arrays of translation files, so it was necessary to translate them into a text equivalent.
+A feature of the framework is that IDEs that help with development do not know how to read the numeric keys of arrays of translation files, so it was necessary to translate them
+into a text equivalent.
 
 This behavior includes [errors.php](https://github.com/andrey-helldar/lang-translations/blob/master/src/lang/en/errors.php) file:
+
 ```php
 <?php
 
@@ -114,7 +104,9 @@ return [
 // ...
 ```
 
-The peculiarity of the package is that it takes the values of the source file and combines it with what is already in the application. Thus, the output is a file with numeric keys that IDE helpers cannot read:
+The peculiarity of the package is that it takes the values of the source file and combines it with what is already in the application. Thus, the output is a file with numeric keys
+that IDE helpers cannot read:
+
 ```php
 <?php
 
@@ -140,10 +132,10 @@ return [
 // ...
 ```
 
-
 ## Using
 
 Source array for all examples:
+
 ```php
 $array = array (
     'foo' => 1,
@@ -175,6 +167,7 @@ return $service->raw($array);
 ```
 
 Result:
+
 ```text
 [
     'foo' => 1,
@@ -195,7 +188,6 @@ Result:
 ]
 ```
 
-
 ### Saving string keys without alignment
 
 ```php
@@ -208,6 +200,7 @@ return $service->raw($array);
 ```
 
 Result:
+
 ```text
 [
     'foo' => 1,
@@ -228,7 +221,6 @@ Result:
 ]
 ```
 
-
 ### Saving numeric keys with alignment
 
 ```php
@@ -241,6 +233,7 @@ return $service->raw($array);
 ```
 
 Result:
+
 ```text
 [
     'foo'    => 1,
@@ -261,7 +254,6 @@ Result:
 ]
 ```
 
-
 ### Saving string keys with alignment
 
 ```php
@@ -275,6 +267,7 @@ return $service->raw($array);
 ```
 
 Result:
+
 ```text
 [
     'foo'    => 1,
@@ -295,6 +288,38 @@ Result:
 ]
 ```
 
+### Saving simple array
+
+```php
+use Helldar\PrettyArray\Services\Formatter;
+
+$service = Formatter::make();
+$service->setSimple();
+
+return $service->raw($array);
+```
+
+Result:
+
+```text
+[
+    1,
+    2,
+    3,
+    'qaz',
+    [
+        'qwe',
+        'rty',
+        'zxc',
+    ],
+    [
+        'qwe',
+        'rty',
+        'zxc',
+    ],
+    'iop',
+]
+```
 
 ### Change key case
 
@@ -309,6 +334,7 @@ return $service->raw($array);
 ```
 
 Result:
+
 ```text
 [
     'Foo' => 1,
@@ -341,6 +367,7 @@ The following options are available:
 
 
 ### Storing file
+
 ```php
 use Helldar\PrettyArray\Services\File;
 use Helldar\PrettyArray\Services\Formatter;
@@ -354,6 +381,7 @@ File::make($formatted)
 ```
 
 Result in stored file `foo.php`:
+
 ```php
 <?php
 
@@ -375,8 +403,3 @@ return [
     2 => 'iop',
 ];
 ```
-
-
-## Copyright and License
-
-`Pretty Array` was written by Andrey Helldar, and is released under the MIT License. See the [LICENSE](LICENSE) file for details.

@@ -16,6 +16,8 @@ final class Formatter implements Caseable
 
     protected $equals_align = false;
 
+    protected $simple = false;
+
     protected $pad_length = 4;
 
     protected $line_break = PHP_EOL;
@@ -35,6 +37,11 @@ final class Formatter implements Caseable
         $this->equals_align = true;
     }
 
+    public function setSimple(): void
+    {
+        $this->simple = true;
+    }
+
     public function raw(array $array, int $pad = 1): string
     {
         $array = $this->convertKeysCase($array);
@@ -47,7 +54,9 @@ final class Formatter implements Caseable
             $key   = $this->key($key, $keys_size);
             $value = $this->value($value, $pad + 1);
 
-            $row = "{$key} => {$value}," . $this->line_break;
+            $row = $this->simple
+                ? "$value," . $this->line_break
+                : "$key => $value," . $this->line_break;
 
             $formatted .= $this->pad($row, $pad_length);
         }

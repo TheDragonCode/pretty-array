@@ -1,0 +1,17 @@
+[
+    'foo',
+    'bar',
+    'baz',
+    'qwe rty',
+    [
+        'qwe',
+        'rty',
+        'zxc',
+    ],
+    [
+        'foo bar baz',
+        'rty',
+        'qaw sed',
+    ],
+    'iop',
+]

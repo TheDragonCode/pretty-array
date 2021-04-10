@@ -26,7 +26,7 @@ abstract class TestCase extends TestCaseFramework
     }
 
     /**
-     * @param string $filename
+     * @param  string  $filename
      *
      * @throws \Helldar\PrettyArray\Exceptions\FileDoesntExistsException
      *
@@ -40,12 +40,14 @@ abstract class TestCase extends TestCaseFramework
     }
 
     /**
+     * @param  string  $filename
+     *
      * @throws \Helldar\PrettyArray\Exceptions\FileDoesntExistsException
      *
      * @return array
      */
-    protected function requireSource(): array
+    protected function requireSource(string $filename = 'source.php'): array
     {
-        return $this->requireFile('source.php');
+        return $this->requireFile($filename);
     }
 }
