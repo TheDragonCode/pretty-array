@@ -42,9 +42,9 @@ class File
         return file_get_contents($filename);
     }
 
-    public function store(string $path): void
+    public function store(string $path, string $stub = StubTool::PHP_ARRAY): void
     {
-        $content = Stub::replace(StubTool::PHP_ARRAY, [
+        $content = Stub::replace($stub, [
             '{{slot}}' => $this->content,
         ]);
 
