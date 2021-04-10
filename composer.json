@@ -18,7 +18,7 @@
         "php": "^7.2.5|^8.0",
         "ext-dom": "*",
         "ext-mbstring": "*",
-        "andrey-helldar/support": "^3.4"
+        "andrey-helldar/support": "^2.0|^3.0"
     },
     "require-dev": {
         "phpunit/phpunit": "^8.0|^9.0"
