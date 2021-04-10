@@ -3,22 +3,23 @@
 namespace Helldar\PrettyArray\Services;
 
 use Helldar\PrettyArray\Exceptions\FileDoesntExistsException;
+use Helldar\Support\Concerns\Makeable;
 use Helldar\Support\Facades\Helpers\Filesystem\File as FileSupport;
 use Helldar\Support\Facades\Tools\Stub;
 use Helldar\Support\Tools\Stub as StubTool;
 
+/**
+ * @method static \Helldar\PrettyArray\Services\File make(string $content = null)
+ */
 class File
 {
+    use Makeable;
+
     protected $content;
 
     public function __construct(string $content = null)
     {
         $this->content = $content;
-    }
-
-    public static function make(string $content = null)
-    {
-        return new static($content);
     }
 
     /**
