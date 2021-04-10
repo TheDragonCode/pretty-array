@@ -2,7 +2,7 @@
 
 namespace Tests;
 
-class FormatterSimple extends TestCase
+class FormatterSimpleTest extends TestCase
 {
     public function testAsSimple()
     {
