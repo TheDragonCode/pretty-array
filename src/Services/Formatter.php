@@ -5,12 +5,14 @@ namespace Helldar\PrettyArray\Services;
 use Helldar\PrettyArray\Concerns\HasCases;
 use Helldar\PrettyArray\Concerns\HasCastable;
 use Helldar\PrettyArray\Contracts\Caseable;
+use Helldar\Support\Concerns\Makeable;
 use Helldar\Support\Facades\Helpers\Arr;
 
 final class Formatter implements Caseable
 {
     use HasCases;
     use HasCastable;
+    use Makeable;
 
     protected $key_as_string = false;
 
@@ -21,11 +23,6 @@ final class Formatter implements Caseable
     protected $pad_length = 4;
 
     protected $line_break = PHP_EOL;
-
-    public static function make(): self
-    {
-        return new static();
-    }
 
     public function setKeyAsString(): void
     {
