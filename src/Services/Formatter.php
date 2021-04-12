@@ -41,6 +41,10 @@ final class Formatter implements Caseable
 
     public function raw(array $array, int $pad = 1): string
     {
+        if (empty($array)) {
+            return '[]';
+        }
+
         $array = $this->convertKeysCase($array);
 
         $keys_size  = $this->sizeKeys($array);

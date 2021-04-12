@@ -30,4 +30,13 @@ class FormatterRawTest extends TestCase
             $formatted . PHP_EOL
         );
     }
+
+    public function testEmptyArray()
+    {
+        $service = $this->service();
+
+        $formatted = $service->raw([]);
+
+        $this->assertSame('[]', $formatted);
+    }
 }
