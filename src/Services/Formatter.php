@@ -18,7 +18,7 @@ final class Formatter implements Caseable
 
     protected $equals_align = false;
 
-    protected $simple = false;
+    protected $is_simple = false;
 
     protected $pad_length = 4;
 
@@ -36,7 +36,7 @@ final class Formatter implements Caseable
 
     public function setSimple(): void
     {
-        $this->simple = true;
+        $this->is_simple = true;
     }
 
     public function raw(array $array, int $pad = 1): string
@@ -51,7 +51,7 @@ final class Formatter implements Caseable
             $key   = $this->key($key, $keys_size);
             $value = $this->value($value, $pad + 1);
 
-            $row = $this->simple
+            $row = $this->is_simple
                 ? "$value," . $this->line_break
                 : "$key => $value," . $this->line_break;
 
