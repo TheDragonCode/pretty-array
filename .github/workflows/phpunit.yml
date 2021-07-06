@@ -9,7 +9,7 @@ jobs:
             fail-fast: true
             matrix:
                 php: [ "7.2", "7.3", "7.4", "8.0" ]
-                support: [ "2.0", "3.0" ]
+                support: [ "2.0", "3.0", "4.0" ]
 
         name: PHP ${{ matrix.php }}, Support ${{ matrix.support }}
 
