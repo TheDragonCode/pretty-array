@@ -2,7 +2,7 @@
 
 Simple conversion of an array to a pretty view.
 
-![pretty-array](https://user-images.githubusercontent.com/10347617/73126548-1e703a00-3fc5-11ea-8b49-c2101031bdc8.png)
+<img src="https://preview.dragon-code.pro/TheDragonCode/pretty-array.svg?brand=php" alt="Pretty Array"/>
 
 <p align="center">
     <a href="https://packagist.org/packages/andrey-helldar/pretty-array"><img src="https://img.shields.io/packagist/dt/andrey-helldar/pretty-array.svg?style=flat-square" alt="Total Downloads" /></a>
