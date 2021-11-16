@@ -1,20 +1,13 @@
 <?php
 
-namespace Helldar\PrettyArray\Concerns;
-
-use function addslashes;
-use function is_array;
-use function is_bool;
-use function is_null;
-use function is_numeric;
-use function is_object;
+namespace DragonCode\PrettyArray\Concerns;
 
 trait HasCastable
 {
     /**
      * Castable value.
      *
-     * @param mixed $value
+     * @param  mixed  $value
      *
      * @return mixed
      */

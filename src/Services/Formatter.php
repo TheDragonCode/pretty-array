@@ -1,14 +1,14 @@
 <?php
 
-namespace Helldar\PrettyArray\Services;
+namespace DragonCode\PrettyArray\Services;
 
-use Helldar\PrettyArray\Concerns\HasCases;
-use Helldar\PrettyArray\Concerns\HasCastable;
-use Helldar\PrettyArray\Contracts\Caseable;
-use Helldar\Support\Concerns\Makeable;
-use Helldar\Support\Facades\Helpers\Arr;
+use DragonCode\Contracts\Pretty\Arr\Caseable;
+use DragonCode\PrettyArray\Concerns\HasCases;
+use DragonCode\PrettyArray\Concerns\HasCastable;
+use DragonCode\Support\Concerns\Makeable;
+use DragonCode\Support\Facades\Helpers\Arr;
 
-final class Formatter implements Caseable
+class Formatter implements Caseable
 {
     use HasCases;
     use HasCastable;

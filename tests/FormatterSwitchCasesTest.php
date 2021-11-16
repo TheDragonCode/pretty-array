@@ -2,13 +2,13 @@
 
 namespace Tests;
 
-use Helldar\PrettyArray\Contracts\Caseable;
+use DragonCode\Contracts\Pretty\Arr\Caseable;
 
 class FormatterSwitchCasesTest extends TestCase
 {
     /**
-     * @throws \Helldar\PrettyArray\Exceptions\FileDoesntExistsException
-     * @throws \Helldar\PrettyArray\Exceptions\UnknownCaseTypeException
+     * @throws \DragonCode\PrettyArray\Exceptions\FileDoesntExistsException
+     * @throws \DragonCode\PrettyArray\Exceptions\UnknownCaseTypeException
      */
     public function testCamelAsString()
     {
@@ -26,8 +26,8 @@ class FormatterSwitchCasesTest extends TestCase
     }
 
     /**
-     * @throws \Helldar\PrettyArray\Exceptions\FileDoesntExistsException
-     * @throws \Helldar\PrettyArray\Exceptions\UnknownCaseTypeException
+     * @throws \DragonCode\PrettyArray\Exceptions\FileDoesntExistsException
+     * @throws \DragonCode\PrettyArray\Exceptions\UnknownCaseTypeException
      */
     public function testCamelNotString()
     {
@@ -44,8 +44,8 @@ class FormatterSwitchCasesTest extends TestCase
     }
 
     /**
-     * @throws \Helldar\PrettyArray\Exceptions\FileDoesntExistsException
-     * @throws \Helldar\PrettyArray\Exceptions\UnknownCaseTypeException
+     * @throws \DragonCode\PrettyArray\Exceptions\FileDoesntExistsException
+     * @throws \DragonCode\PrettyArray\Exceptions\UnknownCaseTypeException
      */
     public function testCamelAlignAsString()
     {
@@ -64,8 +64,8 @@ class FormatterSwitchCasesTest extends TestCase
     }
 
     /**
-     * @throws \Helldar\PrettyArray\Exceptions\FileDoesntExistsException
-     * @throws \Helldar\PrettyArray\Exceptions\UnknownCaseTypeException
+     * @throws \DragonCode\PrettyArray\Exceptions\FileDoesntExistsException
+     * @throws \DragonCode\PrettyArray\Exceptions\UnknownCaseTypeException
      */
     public function testCamelAlignNotString()
     {
@@ -83,8 +83,8 @@ class FormatterSwitchCasesTest extends TestCase
     }
 
     /**
-     * @throws \Helldar\PrettyArray\Exceptions\FileDoesntExistsException
-     * @throws \Helldar\PrettyArray\Exceptions\UnknownCaseTypeException
+     * @throws \DragonCode\PrettyArray\Exceptions\FileDoesntExistsException
+     * @throws \DragonCode\PrettyArray\Exceptions\UnknownCaseTypeException
      */
     public function testKebabAsString()
     {
@@ -102,8 +102,8 @@ class FormatterSwitchCasesTest extends TestCase
     }
 
     /**
-     * @throws \Helldar\PrettyArray\Exceptions\FileDoesntExistsException
-     * @throws \Helldar\PrettyArray\Exceptions\UnknownCaseTypeException
+     * @throws \DragonCode\PrettyArray\Exceptions\FileDoesntExistsException
+     * @throws \DragonCode\PrettyArray\Exceptions\UnknownCaseTypeException
      */
     public function testKebabNotString()
     {
@@ -120,8 +120,8 @@ class FormatterSwitchCasesTest extends TestCase
     }
 
     /**
-     * @throws \Helldar\PrettyArray\Exceptions\FileDoesntExistsException
-     * @throws \Helldar\PrettyArray\Exceptions\UnknownCaseTypeException
+     * @throws \DragonCode\PrettyArray\Exceptions\FileDoesntExistsException
+     * @throws \DragonCode\PrettyArray\Exceptions\UnknownCaseTypeException
      */
     public function testKebabAlignAsString()
     {
@@ -140,8 +140,8 @@ class FormatterSwitchCasesTest extends TestCase
     }
 
     /**
-     * @throws \Helldar\PrettyArray\Exceptions\FileDoesntExistsException
-     * @throws \Helldar\PrettyArray\Exceptions\UnknownCaseTypeException
+     * @throws \DragonCode\PrettyArray\Exceptions\FileDoesntExistsException
+     * @throws \DragonCode\PrettyArray\Exceptions\UnknownCaseTypeException
      */
     public function testKebabAlignNotString()
     {
@@ -159,8 +159,8 @@ class FormatterSwitchCasesTest extends TestCase
     }
 
     /**
-     * @throws \Helldar\PrettyArray\Exceptions\FileDoesntExistsException
-     * @throws \Helldar\PrettyArray\Exceptions\UnknownCaseTypeException
+     * @throws \DragonCode\PrettyArray\Exceptions\FileDoesntExistsException
+     * @throws \DragonCode\PrettyArray\Exceptions\UnknownCaseTypeException
      */
     public function testPascalAsString()
     {
@@ -178,8 +178,8 @@ class FormatterSwitchCasesTest extends TestCase
     }
 
     /**
-     * @throws \Helldar\PrettyArray\Exceptions\FileDoesntExistsException
-     * @throws \Helldar\PrettyArray\Exceptions\UnknownCaseTypeException
+     * @throws \DragonCode\PrettyArray\Exceptions\FileDoesntExistsException
+     * @throws \DragonCode\PrettyArray\Exceptions\UnknownCaseTypeException
      */
     public function testPascalNotString()
     {
@@ -196,8 +196,8 @@ class FormatterSwitchCasesTest extends TestCase
     }
 
     /**
-     * @throws \Helldar\PrettyArray\Exceptions\FileDoesntExistsException
-     * @throws \Helldar\PrettyArray\Exceptions\UnknownCaseTypeException
+     * @throws \DragonCode\PrettyArray\Exceptions\FileDoesntExistsException
+     * @throws \DragonCode\PrettyArray\Exceptions\UnknownCaseTypeException
      */
     public function testPascalAlignAsString()
     {
@@ -216,8 +216,8 @@ class FormatterSwitchCasesTest extends TestCase
     }
 
     /**
-     * @throws \Helldar\PrettyArray\Exceptions\FileDoesntExistsException
-     * @throws \Helldar\PrettyArray\Exceptions\UnknownCaseTypeException
+     * @throws \DragonCode\PrettyArray\Exceptions\FileDoesntExistsException
+     * @throws \DragonCode\PrettyArray\Exceptions\UnknownCaseTypeException
      */
     public function testPascalAlignNotString()
     {
@@ -235,8 +235,8 @@ class FormatterSwitchCasesTest extends TestCase
     }
 
     /**
-     * @throws \Helldar\PrettyArray\Exceptions\FileDoesntExistsException
-     * @throws \Helldar\PrettyArray\Exceptions\UnknownCaseTypeException
+     * @throws \DragonCode\PrettyArray\Exceptions\FileDoesntExistsException
+     * @throws \DragonCode\PrettyArray\Exceptions\UnknownCaseTypeException
      */
     public function testSnakeAsString()
     {
@@ -254,8 +254,8 @@ class FormatterSwitchCasesTest extends TestCase
     }
 
     /**
-     * @throws \Helldar\PrettyArray\Exceptions\FileDoesntExistsException
-     * @throws \Helldar\PrettyArray\Exceptions\UnknownCaseTypeException
+     * @throws \DragonCode\PrettyArray\Exceptions\FileDoesntExistsException
+     * @throws \DragonCode\PrettyArray\Exceptions\UnknownCaseTypeException
      */
     public function testSnakeNotString()
     {
@@ -272,8 +272,8 @@ class FormatterSwitchCasesTest extends TestCase
     }
 
     /**
-     * @throws \Helldar\PrettyArray\Exceptions\FileDoesntExistsException
-     * @throws \Helldar\PrettyArray\Exceptions\UnknownCaseTypeException
+     * @throws \DragonCode\PrettyArray\Exceptions\FileDoesntExistsException
+     * @throws \DragonCode\PrettyArray\Exceptions\UnknownCaseTypeException
      */
     public function testSnakeAlignAsString()
     {
@@ -292,8 +292,8 @@ class FormatterSwitchCasesTest extends TestCase
     }
 
     /**
-     * @throws \Helldar\PrettyArray\Exceptions\FileDoesntExistsException
-     * @throws \Helldar\PrettyArray\Exceptions\UnknownCaseTypeException
+     * @throws \DragonCode\PrettyArray\Exceptions\FileDoesntExistsException
+     * @throws \DragonCode\PrettyArray\Exceptions\UnknownCaseTypeException
      */
     public function testSnakeAlignNotString()
     {

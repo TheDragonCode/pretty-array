@@ -1,9 +1,9 @@
 <?php
 
-namespace Helldar\PrettyArray\Concerns;
+namespace DragonCode\PrettyArray\Concerns;
 
-use Helldar\PrettyArray\Exceptions\UnknownCaseTypeException;
-use Helldar\Support\Facades\Helpers\Str;
+use DragonCode\PrettyArray\Exceptions\UnknownCaseTypeException;
+use DragonCode\Support\Facades\Helpers\Str;
 
 trait HasCases
 {
@@ -12,7 +12,7 @@ trait HasCases
     /**
      * @param  int  $type
      *
-     * @throws \Helldar\PrettyArray\Exceptions\UnknownCaseTypeException
+     * @throws \DragonCode\PrettyArray\Exceptions\UnknownCaseTypeException
      */
     public function setCase(int $type = self::NO_CASE): void
     {

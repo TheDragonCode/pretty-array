@@ -2,7 +2,7 @@
 
 namespace Tests;
 
-use Helldar\PrettyArray\Services\File;
+use DragonCode\PrettyArray\Services\File;
 
 class FormatterStoringText extends TestCase
 {

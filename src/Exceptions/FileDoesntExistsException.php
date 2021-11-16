@@ -1,6 +1,6 @@
 <?php
 
-namespace Helldar\PrettyArray\Exceptions;
+namespace DragonCode\PrettyArray\Exceptions;
 
 use Exception;
 

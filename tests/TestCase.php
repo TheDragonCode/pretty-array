@@ -2,8 +2,8 @@
 
 namespace Tests;
 
-use Helldar\PrettyArray\Services\File;
-use Helldar\PrettyArray\Services\Formatter;
+use DragonCode\PrettyArray\Services\File;
+use DragonCode\PrettyArray\Services\Formatter;
 use PHPUnit\Framework\TestCase as TestCaseFramework;
 
 abstract class TestCase extends TestCaseFramework
@@ -28,7 +28,7 @@ abstract class TestCase extends TestCaseFramework
     /**
      * @param  string  $filename
      *
-     * @throws \Helldar\PrettyArray\Exceptions\FileDoesntExistsException
+     * @throws \DragonCode\PrettyArray\Exceptions\FileDoesntExistsException
      *
      * @return array
      */
@@ -42,7 +42,7 @@ abstract class TestCase extends TestCaseFramework
     /**
      * @param  string  $filename
      *
-     * @throws \Helldar\PrettyArray\Exceptions\FileDoesntExistsException
+     * @throws \DragonCode\PrettyArray\Exceptions\FileDoesntExistsException
      *
      * @return array
      */

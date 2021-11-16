@@ -1,12 +1,12 @@
 {
-    "name": "andrey-helldar/pretty-array",
-    "description": "Simple conversion of an array to a pretty view.",
+    "name": "dragon-code/pretty-array",
+    "description": "Simple conversion of an array to a pretty view",
     "type": "library",
     "license": "MIT",
-    "keywords": ["pretty array", "pretty", "array"],
+    "keywords": ["pretty array", "pretty", "array", "dragon code", "dragon", "andrey helldar"],
     "support": {
-        "issues": "https://github.com/andrey-helldar/pretty-array/issues",
-        "source": "https://github.com/andrey-helldar/pretty-array"
+        "issues": "https://github.com/TheDragonCode/pretty-array/issues",
+        "source": "https://github.com/TheDragonCode/pretty-array"
     },
     "authors": [
         {
@@ -18,17 +18,21 @@
         "php": "^7.2.5|^8.0",
         "ext-dom": "*",
         "ext-mbstring": "*",
-        "andrey-helldar/support": "^2.0|^3.0|^4.0"
+        "dragon-code/contracts": "^2.6",
+        "dragon-code/support": "^5.0"
     },
     "require-dev": {
-        "phpunit/phpunit": "^8.0|^9.0"
+        "phpunit/phpunit": "^9.0"
+    },
+    "conflict": {
+        "andrey-helldar/pretty-array": "*"
     },
     "suggest": {
         "symfony/thanks": "Give thanks (in the form of a GitHub) to your fellow PHP package maintainers"
     },
     "autoload": {
         "psr-4": {
-            "Helldar\\PrettyArray\\": "src"
+            "DragonCode\\PrettyArray\\": "src"
         }
     },
     "autoload-dev": {

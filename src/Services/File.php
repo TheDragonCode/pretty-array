@@ -1,15 +1,15 @@
 <?php
 
-namespace Helldar\PrettyArray\Services;
+namespace DragonCode\PrettyArray\Services;
 
-use Helldar\PrettyArray\Exceptions\FileDoesntExistsException;
-use Helldar\Support\Concerns\Makeable;
-use Helldar\Support\Facades\Helpers\Filesystem\File as FileSupport;
-use Helldar\Support\Facades\Tools\Stub;
-use Helldar\Support\Tools\Stub as StubTool;
+use DragonCode\PrettyArray\Exceptions\FileDoesntExistsException;
+use DragonCode\Support\Concerns\Makeable;
+use DragonCode\Support\Facades\Helpers\Filesystem\File as FileSupport;
+use DragonCode\Support\Facades\Tools\Stub;
+use DragonCode\Support\Tools\Stub as StubTool;
 
 /**
- * @method static \Helldar\PrettyArray\Services\File make(string $content = null)
+ * @method static \DragonCode\PrettyArray\Services\File make(string $content = null)
  */
 class File
 {
@@ -25,7 +25,7 @@ class File
     /**
      * @param  string  $filename
      *
-     * @throws \Helldar\PrettyArray\Exceptions\FileDoesntExistsException
+     * @throws \DragonCode\PrettyArray\Exceptions\FileDoesntExistsException
      *
      * @return mixed
      */
