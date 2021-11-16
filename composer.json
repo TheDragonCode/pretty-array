@@ -15,7 +15,7 @@
         }
     ],
     "require": {
-        "php": "^7.2.5|^8.0",
+        "php": "^7.3|^8.0",
         "ext-dom": "*",
         "ext-mbstring": "*",
         "dragon-code/contracts": "^2.6",
