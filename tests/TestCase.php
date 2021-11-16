@@ -1,9 +1,24 @@
 <?php
 
+/*
+ * This file is part of the "dragon-code/pretty-array" project.
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ *
+ * @author Andrey Helldar <helldar@ai-rus.com>
+ *
+ * @copyright 2021 Andrey Helldar
+ *
+ * @license MIT
+ *
+ * @see https://github.com/TheDragonCode/pretty-array
+ */
+
 namespace Tests;
 
-use Helldar\PrettyArray\Services\File;
-use Helldar\PrettyArray\Services\Formatter;
+use DragonCode\PrettyArray\Services\File;
+use DragonCode\PrettyArray\Services\Formatter;
 use PHPUnit\Framework\TestCase as TestCaseFramework;
 
 abstract class TestCase extends TestCaseFramework
@@ -28,7 +43,7 @@ abstract class TestCase extends TestCaseFramework
     /**
      * @param  string  $filename
      *
-     * @throws \Helldar\PrettyArray\Exceptions\FileDoesntExistsException
+     * @throws \DragonCode\PrettyArray\Exceptions\FileDoesntExistsException
      *
      * @return array
      */
@@ -42,7 +57,7 @@ abstract class TestCase extends TestCaseFramework
     /**
      * @param  string  $filename
      *
-     * @throws \Helldar\PrettyArray\Exceptions\FileDoesntExistsException
+     * @throws \DragonCode\PrettyArray\Exceptions\FileDoesntExistsException
      *
      * @return array
      */

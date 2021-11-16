@@ -1,20 +1,14 @@
 # Pretty Array
 
-Simple conversion of an array to a pretty view.
-
 <img src="https://preview.dragon-code.pro/TheDragonCode/pretty-array.svg?brand=php" alt="Pretty Array"/>
 
-<p align="center">
-    <a href="https://packagist.org/packages/andrey-helldar/pretty-array"><img src="https://img.shields.io/packagist/dt/andrey-helldar/pretty-array.svg?style=flat-square" alt="Total Downloads" /></a>
-    <a href="https://packagist.org/packages/andrey-helldar/pretty-array"><img src="https://poser.pugx.org/andrey-helldar/pretty-array/v/stable?format=flat-square" alt="Latest Stable Version" /></a>
-    <a href="https://packagist.org/packages/andrey-helldar/pretty-array"><img src="https://poser.pugx.org/andrey-helldar/pretty-array/v/unstable?format=flat-square" alt="Latest Unstable Version" /></a>
-</p>
+[![Stable Version][badge_stable]][link_packagist]
+[![Unstable Version][badge_unstable]][link_packagist]
+[![Total Downloads][badge_downloads]][link_packagist]
+[![Github Workflow Status][badge_build]][link_build]
+[![License][badge_license]][link_license]
 
-<p align="center">
-    <a href="https://styleci.io/repos/219764491"><img src="https://styleci.io/repos/219764491/shield" alt="StyleCI" /></a>
-    <a href="https://travis-ci.org/andrey-helldar/pretty-array"><img src="https://travis-ci.org/andrey-helldar/pretty-array.svg?branch=master" alt="Travis-CI" /></a>
-    <a href="LICENSE"><img src="https://poser.pugx.org/andrey-helldar/pretty-array/license?format=flat-square" alt="License" /></a>
-</p>
+> Simple conversion of an array to a pretty view.
 
 
 ## Installation
@@ -22,18 +16,25 @@ Simple conversion of an array to a pretty view.
 To get the latest version of `Pretty Array` package, simply require the project using [Composer](https://getcomposer.org):
 
 ```
-composer require andrey-helldar/pretty-array --dev
+composer require dragon-code/pretty-array
 ```
 
-Instead, you may of course manually update your `require-dev` block and run `composer update` if you so choose:
+Instead, you may of course manually update your `require` block and run `composer update` if you so choose:
 
 ```json
 {
-    "require-dev": {
-        "andrey-helldar/pretty-array": "^2.2"
+    "require": {
+        "dragon-code/pretty-array": "^3.0"
     }
 }
 ```
+
+### Upgrade from `andrey-helldar/pretty-array`
+
+1. Replace `"andrey-helldar/pretty-array": "^2.0"` with `"dragon-code/pretty-array": "^3.0"` in the `composer.json` file;
+2. Replace `Helldar\PrettyArray\Contracts\Caseable` with `DragonCode\Contracts\Pretty\Arr\Caseable`;
+3. Replace `Helldar\PrettyArray` namespace prefix with `DragonCode\PrettyArray`; 
+4. Call the `composer update` console command.
 
 ## Introduction
 
@@ -70,14 +71,15 @@ $array = [
 > Q: Why do you think this is bad?
 
 This package has a framework-independent base. However, it was originally developed as an assistant for
-package [lang-translations](https://github.com/andrey-helldar/lang-translations).
+the [Laravel Lang: HTTP Statuses](https://github.com/Laravel-Lang/http-statuses)
+package.
 
-This package allows you to publish language translations for the Laravel framework.
+This package allows you to publish language translations of the HTTP Status Codes for the Laravel and Lumen frameworks.
 
-A feature of the framework is that IDEs that help with development do not know how to read the numeric keys of arrays of translation files, so it was necessary to translate them
-into a text equivalent.
+A feature of the framework is that IDEs that help with development do not know how to read the numeric keys of arrays of translation files, so it was necessary to translate
+theminto a text equivalent.
 
-This behavior includes [errors.php](https://github.com/andrey-helldar/lang-translations/blob/master/src/lang/en/errors.php) file:
+This behavior includes [http-statuses.php](https://github.com/Laravel-Lang/http-statuses/blob/main/source/http-statuses.php) file:
 
 ```php
 <?php
@@ -159,7 +161,7 @@ $array = array (
 ### Saving numeric keys without alignment
 
 ```php
-use Helldar\PrettyArray\Services\Formatter;
+use DragonCode\PrettyArray\Services\Formatter;
 
 $service = Formatter::make();
 
@@ -191,7 +193,7 @@ Result:
 ### Saving string keys without alignment
 
 ```php
-use Helldar\PrettyArray\Services\Formatter;
+use DragonCode\PrettyArray\Services\Formatter;
 
 $service = Formatter::make();
 $service->setKeyAsString();
@@ -224,7 +226,7 @@ Result:
 ### Saving numeric keys with alignment
 
 ```php
-use Helldar\PrettyArray\Services\Formatter;
+use DragonCode\PrettyArray\Services\Formatter;
 
 $service = Formatter::make();
 $service->setEqualsAlign();
@@ -257,7 +259,7 @@ Result:
 ### Saving string keys with alignment
 
 ```php
-use Helldar\PrettyArray\Services\Formatter;
+use DragonCode\PrettyArray\Services\Formatter;
 
 $service = Formatter::make();
 $service->setKeyAsString();
@@ -291,7 +293,7 @@ Result:
 ### Saving simple array
 
 ```php
-use Helldar\PrettyArray\Services\Formatter;
+use DragonCode\PrettyArray\Services\Formatter;
 
 $service = Formatter::make();
 $service->setSimple();
@@ -324,8 +326,8 @@ Result:
 ### Change key case
 
 ```php
-use Helldar\PrettyArray\Contracts\Caseable;
-use Helldar\PrettyArray\Services\Formatter;
+use DragonCode\Contracts\Pretty\Arr\Caseable;
+use DragonCode\PrettyArray\Services\Formatter;
 
 $service = Formatter::make();
 $service->setCase(Caseable::PASCAL_CASE);
@@ -357,11 +359,11 @@ Result:
 
 The following options are available:
 
-* camelCase (`Helldar\PrettyArray\Contracts\Caseable::CAMEL_CASE`);
-* kebab-case (`Helldar\PrettyArray\Contracts\Caseable::KEBAB_CASE`);
-* PascalCase (`Helldar\PrettyArray\Contracts\Caseable::PASCAL_CASE`);
-* snake_case (`Helldar\PrettyArray\Contracts\Caseable::SNAKE_CASE`);
-* no case (`Helldar\PrettyArray\Contracts\Caseable::NO_CASE`). By default;
+* camelCase (`DragonCode\Contracts\Pretty\Arr\Caseable::CAMEL_CASE`);
+* kebab-case (`DragonCode\Contracts\Pretty\Arr\Caseable::KEBAB_CASE`);
+* PascalCase (`DragonCode\Contracts\Pretty\Arr\Caseable::PASCAL_CASE`);
+* snake_case (`DragonCode\Contracts\Pretty\Arr\Caseable::SNAKE_CASE`);
+* no case (`DragonCode\Contracts\Pretty\Arr\Caseable::NO_CASE`). By default;
 
 `NO_CASE` means that key register processing will not be performed.
 
@@ -369,8 +371,8 @@ The following options are available:
 ### Storing file
 
 ```php
-use Helldar\PrettyArray\Services\File;
-use Helldar\PrettyArray\Services\Formatter;
+use DragonCode\PrettyArray\Services\File;
+use DragonCode\PrettyArray\Services\Formatter;
 
 $service = Formatter::make();
 
@@ -409,8 +411,18 @@ return [
 This package is licensed under the [MIT License](LICENSE).
 
 
-## For Enterprise
+[badge_build]:          https://img.shields.io/github/workflow/status/TheDragonCode/pretty-array/phpunit?style=flat-square
 
-Available as part of the Tidelift Subscription.
+[badge_downloads]:      https://img.shields.io/packagist/dt/dragon-code/pretty-array.svg?style=flat-square
 
-The maintainers of `andrey-helldar/pretty-array` and thousands of other packages are working with Tidelift to deliver commercial support and maintenance for the open source packages you use to build your applications. Save time, reduce risk, and improve code health, while paying the maintainers of the exact packages you use. [Learn more](https://tidelift.com/subscription/pkg/packagist-andrey-helldar-pretty-array?utm_source=packagist-andrey-helldar-pretty-array&utm_medium=referral&utm_campaign=enterprise&utm_term=repo).
+[badge_license]:        https://img.shields.io/packagist/l/dragon-code/pretty-array.svg?style=flat-square
+
+[badge_stable]:         https://img.shields.io/github/v/release/TheDragonCode/pretty-array?label=stable&style=flat-square
+
+[badge_unstable]:       https://img.shields.io/badge/unstable-dev--main-orange?style=flat-square
+
+[link_build]:           https://github.com/TheDragonCode/pretty-array/actions
+
+[link_license]:         LICENSE
+
+[link_packagist]:       https://packagist.org/packages/dragon-code/pretty-array

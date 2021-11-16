@@ -1,20 +1,28 @@
 <?php
 
-namespace Helldar\PrettyArray\Concerns;
+/*
+ * This file is part of the "dragon-code/pretty-array" project.
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ *
+ * @author Andrey Helldar <helldar@ai-rus.com>
+ *
+ * @copyright 2021 Andrey Helldar
+ *
+ * @license MIT
+ *
+ * @see https://github.com/TheDragonCode/pretty-array
+ */
 
-use function addslashes;
-use function is_array;
-use function is_bool;
-use function is_null;
-use function is_numeric;
-use function is_object;
+namespace DragonCode\PrettyArray\Concerns;
 
 trait HasCastable
 {
     /**
      * Castable value.
      *
-     * @param mixed $value
+     * @param  mixed  $value
      *
      * @return mixed
      */

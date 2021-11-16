@@ -1,9 +1,24 @@
 <?php
 
-namespace Helldar\PrettyArray\Concerns;
+/*
+ * This file is part of the "dragon-code/pretty-array" project.
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ *
+ * @author Andrey Helldar <helldar@ai-rus.com>
+ *
+ * @copyright 2021 Andrey Helldar
+ *
+ * @license MIT
+ *
+ * @see https://github.com/TheDragonCode/pretty-array
+ */
 
-use Helldar\PrettyArray\Exceptions\UnknownCaseTypeException;
-use Helldar\Support\Facades\Helpers\Str;
+namespace DragonCode\PrettyArray\Concerns;
+
+use DragonCode\PrettyArray\Exceptions\UnknownCaseTypeException;
+use DragonCode\Support\Facades\Helpers\Str;
 
 trait HasCases
 {
@@ -12,7 +27,7 @@ trait HasCases
     /**
      * @param  int  $type
      *
-     * @throws \Helldar\PrettyArray\Exceptions\UnknownCaseTypeException
+     * @throws \DragonCode\PrettyArray\Exceptions\UnknownCaseTypeException
      */
     public function setCase(int $type = self::NO_CASE): void
     {

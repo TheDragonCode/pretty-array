@@ -8,8 +8,7 @@ jobs:
         strategy:
             fail-fast: true
             matrix:
-                php: [ "7.2", "7.3", "7.4", "8.0" ]
-                support: [ "2.0", "3.0", "4.0" ]
+                php: [ "7.3", "7.4", "8.0" ]
 
         name: PHP ${{ matrix.php }}, Support ${{ matrix.support }}
 
@@ -24,13 +23,8 @@ jobs:
                     extensions: curl, mbstring, zip, pcntl, pdo, pdo_sqlite, iconv, bcmath
                     coverage: none
 
-            -   name: Composer self update
-                run: composer self-update
-
             -   name: Install dependencies
-                run: |
-                    composer require andrey-helldar/support:^${{ matrix.support }}
-                    composer update --prefer-stable --prefer-dist --no-progress --no-interaction
+                run: composer update --prefer-stable --prefer-dist --no-progress --no-interaction
 
             -   name: Execute tests
                 run: sudo vendor/bin/phpunit
