@@ -15,20 +15,20 @@
  * @see https://github.com/TheDragonCode/pretty-array
  */
 
-return array (
-    1 => 'foo',
+return [
+    1     => 'foo',
     'foo' => 'bar',
     'baz',
     'qwe rty',
-    'baq' => array (
+    'baq' => [
         'qwe',
         'rty',
         'zxc',
-    ),
-    'asd fgh' => array (
+    ],
+    'asd fgh' => [
         'foo bar baz',
-         'rty',
+        'rty',
         'qaw sed',
-    ),
-   'iop',
-);
+    ],
+    'iop',
+];

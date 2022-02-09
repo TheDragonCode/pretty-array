@@ -41,7 +41,7 @@ abstract class TestCase extends TestCaseFramework
     }
 
     /**
-     * @param  string  $filename
+     * @param string $filename
      *
      * @throws \DragonCode\PrettyArray\Exceptions\FileDoesntExistsException
      *
@@ -55,7 +55,7 @@ abstract class TestCase extends TestCaseFramework
     }
 
     /**
-     * @param  string  $filename
+     * @param string $filename
      *
      * @throws \DragonCode\PrettyArray\Exceptions\FileDoesntExistsException
      *

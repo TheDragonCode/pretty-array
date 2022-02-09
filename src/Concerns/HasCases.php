@@ -25,7 +25,7 @@ trait HasCases
     protected $case = self::NO_CASE;
 
     /**
-     * @param  int  $type
+     * @param int $type
      *
      * @throws \DragonCode\PrettyArray\Exceptions\UnknownCaseTypeException
      */
@@ -67,21 +67,25 @@ trait HasCases
                     $this->caseTo($key, static::PASCAL_CASE),
                     static::KEBAB_CASE
                 );
+
             case static::CAMEL_CASE:
                 return $this->caseTo(
                     $this->caseTo($key, static::KEBAB_CASE),
                     static::CAMEL_CASE
                 );
+
             case static::SNAKE_CASE:
                 return $this->caseTo(
                     $this->caseTo($key, static::PASCAL_CASE),
                     static::SNAKE_CASE
                 );
+
             case static::PASCAL_CASE:
                 return $this->caseTo(
                     $this->caseTo($key, static::KEBAB_CASE),
                     static::PASCAL_CASE
                 );
+
             default:
                 return $key;
         }
@@ -96,12 +100,16 @@ trait HasCases
         switch ($case) {
             case static::CAMEL_CASE:
                 return Str::camel($key);
+
             case static::KEBAB_CASE:
                 return Str::snake($key, '-');
+
             case static::SNAKE_CASE:
                 return Str::snake($key);
+
             case static::PASCAL_CASE:
                 return Str::studly($key);
+
             default:
                 return $key;
         }

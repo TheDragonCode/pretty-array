@@ -17,7 +17,9 @@
 
 namespace DragonCode\PrettyArray\Exceptions;
 
-class UnknownCaseTypeException extends \Exception
+use Exception;
+
+class UnknownCaseTypeException extends Exception
 {
     public function __construct(string $type)
     {

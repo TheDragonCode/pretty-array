@@ -32,13 +32,13 @@ class File
 
     protected $content;
 
-    public function __construct(string $content = null)
+    public function __construct(?string $content = null)
     {
         $this->content = $content;
     }
 
     /**
-     * @param  string  $filename
+     * @param string $filename
      *
      * @throws \DragonCode\PrettyArray\Exceptions\FileDoesntExistsException
      *
