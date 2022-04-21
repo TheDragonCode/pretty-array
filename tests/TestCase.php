@@ -40,13 +40,6 @@ abstract class TestCase extends TestCaseFramework
         );
     }
 
-    /**
-     * @param string $filename
-     *
-     * @throws \DragonCode\PrettyArray\Exceptions\FileDoesntExistsException
-     *
-     * @return array
-     */
     protected function requireFile(string $filename): array
     {
         return File::make()->load(
@@ -54,13 +47,6 @@ abstract class TestCase extends TestCaseFramework
         );
     }
 
-    /**
-     * @param string $filename
-     *
-     * @throws \DragonCode\PrettyArray\Exceptions\FileDoesntExistsException
-     *
-     * @return array
-     */
     protected function requireSource(string $filename = 'source.php'): array
     {
         return $this->requireFile($filename);

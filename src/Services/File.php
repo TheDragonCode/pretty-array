@@ -17,45 +17,26 @@
 
 namespace DragonCode\PrettyArray\Services;
 
-use DragonCode\PrettyArray\Exceptions\FileDoesntExistsException;
 use DragonCode\Support\Concerns\Makeable;
-use DragonCode\Support\Facades\Helpers\Filesystem\File as FileSupport;
+use DragonCode\Support\Facades\Filesystem\File as Storage;
 use DragonCode\Support\Facades\Tools\Stub;
 use DragonCode\Support\Tools\Stub as StubTool;
 
 /**
- * @method static \DragonCode\PrettyArray\Services\File make(string $content = null)
+ * @method static File make(?string $content = null)
  */
 class File
 {
     use Makeable;
 
-    protected $content;
-
-    public function __construct(?string $content = null)
-    {
-        $this->content = $content;
+    public function __construct(
+        protected ?string $content = null
+    ) {
     }
 
-    /**
-     * @param string $filename
-     *
-     * @throws \DragonCode\PrettyArray\Exceptions\FileDoesntExistsException
-     *
-     * @return mixed
-     */
-    public function load(string $filename)
+    public function load(string $filename): array
     {
-        if (! file_exists($filename)) {
-            throw new FileDoesntExistsException($filename);
-        }
-
-        return require $filename;
-    }
-
-    public function loadRaw(string $filename)
-    {
-        return file_get_contents($filename);
+        return Storage::load($filename);
     }
 
     public function store(string $path, string $stub = StubTool::PHP_ARRAY): void
@@ -64,11 +45,6 @@ class File
             '{{slot}}' => $this->content,
         ]);
 
-        FileSupport::store($path, $content);
-    }
-
-    public function storeRaw(string $path): void
-    {
-        FileSupport::store($path, $this->content);
+        Storage::store($path, $content);
     }
 }

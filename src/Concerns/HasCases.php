@@ -55,63 +55,49 @@ trait HasCases
         return $result;
     }
 
-    protected function convertKeyCase($key)
+    protected function convertKeyCase(mixed $key): mixed
     {
         if (! is_string($key)) {
             return $key;
         }
 
-        switch ($this->case) {
-            case static::KEBAB_CASE:
-                return $this->caseTo(
-                    $this->caseTo($key, static::PASCAL_CASE),
-                    static::KEBAB_CASE
-                );
+        return match ($this->case) {
+            static::KEBAB_CASE  => $this->caseTo(
+                $this->caseTo($key, static::PASCAL_CASE),
+                static::KEBAB_CASE
+            ),
 
-            case static::CAMEL_CASE:
-                return $this->caseTo(
-                    $this->caseTo($key, static::KEBAB_CASE),
-                    static::CAMEL_CASE
-                );
+            static::CAMEL_CASE  => $this->caseTo(
+                $this->caseTo($key, static::KEBAB_CASE),
+                static::CAMEL_CASE
+            ),
 
-            case static::SNAKE_CASE:
-                return $this->caseTo(
-                    $this->caseTo($key, static::PASCAL_CASE),
-                    static::SNAKE_CASE
-                );
+            static::SNAKE_CASE  => $this->caseTo(
+                $this->caseTo($key, static::PASCAL_CASE),
+                static::SNAKE_CASE
+            ),
 
-            case static::PASCAL_CASE:
-                return $this->caseTo(
-                    $this->caseTo($key, static::KEBAB_CASE),
-                    static::PASCAL_CASE
-                );
+            static::PASCAL_CASE => $this->caseTo(
+                $this->caseTo($key, static::KEBAB_CASE),
+                static::PASCAL_CASE
+            ),
 
-            default:
-                return $key;
-        }
+            default             => $key,
+        };
     }
 
-    protected function caseTo($key, int $case = 0)
+    protected function caseTo(mixed $key, int $case = 0): mixed
     {
         if (! is_string($key)) {
             return $key;
         }
 
-        switch ($case) {
-            case static::CAMEL_CASE:
-                return Str::camel($key);
-
-            case static::KEBAB_CASE:
-                return Str::snake($key, '-');
-
-            case static::SNAKE_CASE:
-                return Str::snake($key);
-
-            case static::PASCAL_CASE:
-                return Str::studly($key);
-
-            default:
-                return $key;
-        }
+        return match ($case) {
+            static::CAMEL_CASE  => Str::camel($key),
+            static::KEBAB_CASE  => Str::snake($key, '-'),
+            static::SNAKE_CASE  => Str::snake($key),
+            static::PASCAL_CASE => Str::studly($key),
+            default             => $key,
+        };
     }
 }
