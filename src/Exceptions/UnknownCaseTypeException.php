@@ -23,6 +23,6 @@ class UnknownCaseTypeException extends Exception
 {
     public function __construct(string $type)
     {
-        parent::__construct("Unknown conversion type: {$type}", 500);
+        parent::__construct("Unknown conversion type: $type", 500);
     }
 }
