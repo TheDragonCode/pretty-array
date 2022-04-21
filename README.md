@@ -24,17 +24,10 @@ Instead, you may of course manually update your `require` block and run `compose
 ```json
 {
     "require": {
-        "dragon-code/pretty-array": "^3.0"
+        "dragon-code/pretty-array": "^4.0"
     }
 }
 ```
-
-### Upgrade from `andrey-helldar/pretty-array`
-
-1. Replace `"andrey-helldar/pretty-array": "^2.0"` with `"dragon-code/pretty-array": "^3.0"` in the `composer.json` file;
-2. Replace `Helldar\PrettyArray\Contracts\Caseable` with `DragonCode\Contracts\Pretty\Arr\Caseable`;
-3. Replace `Helldar\PrettyArray` namespace prefix with `DragonCode\PrettyArray`; 
-4. Call the `composer update` console command.
 
 ## Introduction
 
