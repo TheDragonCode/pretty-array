@@ -21,7 +21,13 @@ namespace DragonCode\PrettyArray\Services\Formatters;
 
 class Json extends Base
 {
-    protected int $flags = JSON_UNESCAPED_SLASHES ^ JSON_PRETTY_PRINT ^ JSON_UNESCAPED_UNICODE;
+    protected int $flags = JSON_NUMERIC_CHECK
+        ^ JSON_PRESERVE_ZERO_FRACTION
+        ^ JSON_PRETTY_PRINT
+        ^ JSON_UNESCAPED_UNICODE
+        ^ JSON_UNESCAPED_SLASHES
+        ^ JSON_UNESCAPED_LINE_TERMINATORS
+        ^ JSON_PARTIAL_OUTPUT_ON_ERROR;
 
     public function get(array $array, int $pad = 1): string
     {
