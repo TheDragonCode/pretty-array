@@ -319,7 +319,8 @@ Result:
 ### Change key case
 
 ```php
-use DragonCode\Contracts\Pretty\Arr\Caseable;use DragonCode\PrettyArray\Services\Formatter;
+use DragonCode\Contracts\Pretty\Arr\Caseable;
+use DragonCode\PrettyArray\Services\Formatter;
 
 $service = Formatter::make();
 $service->setCase(Caseable::PASCAL_CASE);
@@ -363,7 +364,8 @@ The following options are available:
 ### Storing file
 
 ```php
-use DragonCode\PrettyArray\Services\File;use DragonCode\PrettyArray\Services\Formatter;
+use DragonCode\PrettyArray\Services\File;
+use DragonCode\PrettyArray\Services\Formatter;
 
 $service = Formatter::make();
 
@@ -395,6 +397,44 @@ return [
     ],
     2 => 'iop',
 ];
+```
+
+#### As JSON
+
+```php
+use DragonCode\PrettyArray\Services\File;
+use DragonCode\PrettyArray\Services\Formatter;
+
+$service = Formatter::make();
+
+$service->asJson();
+
+$formatted = $service->raw($array);
+
+File::make($formatted)
+    ->store('foo.json');
+```
+
+Result in stored file `foo.json`:
+
+```json
+{
+    "foo": 1,
+    "bar": 2,
+    "baz": 3,
+    "qwerty": "qaz",
+    "baq": {
+        "0": "qwe",
+        "1": "rty",
+        "asd": "zxc"
+    },
+    "asdfgh": {
+        "foobarbaz": "qwe",
+        "2": "rty",
+        "qawsed": "zxc"
+    },
+    "2": "'iop'"
+}
 ```
 
 ## License

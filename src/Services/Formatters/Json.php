@@ -62,7 +62,7 @@ class Json extends Base
             return $this->prepare($value);
         }
 
-        return $this->castValue($value);
+        return $value;
     }
 
     protected function encode(mixed $value): string
