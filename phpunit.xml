@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <!--
   ~ This file is part of the "dragon-code/pretty-array" project.
   ~
@@ -14,30 +13,23 @@
   ~
   ~ @see https://github.com/TheDragonCode/pretty-array
   -->
-
 <phpunit
-        xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.3/phpunit.xsd"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/10.2/phpunit.xsd"
         backupGlobals="false"
-        backupStaticAttributes="false"
+        backupStaticProperties="false"
         bootstrap="vendor/autoload.php"
+        cacheDirectory=".phpunit.cache"
         colors="true"
-        convertErrorsToExceptions="true"
-        convertNoticesToExceptions="true"
-        convertWarningsToExceptions="true"
         processIsolation="false"
         stopOnError="false"
         stopOnFailure="false"
-        verbose="true"
 >
-    <coverage processUncoveredFiles="true">
-        <include>
-            <directory suffix=".php">./src</directory>
-        </include>
+    <coverage>
         <report>
-            <clover outputFile="build/logs/clover.xml"/>
-            <html outputDirectory="build/logs/coverage"/>
-            <text outputFile="build/logs/coverage.txt"/>
+            <clover outputFile="build/logs/clover.xml" />
+            <html outputDirectory="build/logs/coverage" />
+            <text outputFile="build/logs/coverage.txt" />
         </report>
     </coverage>
     <testsuites>
@@ -45,4 +37,9 @@
             <directory suffix="Test.php">./tests</directory>
         </testsuite>
     </testsuites>
+    <source>
+        <include>
+            <directory suffix=".php">./src</directory>
+        </include>
+    </source>
 </phpunit>
