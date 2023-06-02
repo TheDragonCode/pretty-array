@@ -22,7 +22,7 @@ use DragonCode\Support\Facades\Helpers\Str;
 
 trait HasCases
 {
-    protected $case = self::NO_CASE;
+    protected int $case = self::NO_CASE;
 
     /**
      * @param int $type
