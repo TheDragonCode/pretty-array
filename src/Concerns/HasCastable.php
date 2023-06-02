@@ -17,23 +17,25 @@
 
 namespace DragonCode\PrettyArray\Concerns;
 
+use DragonCode\Support\Facades\Helpers\Boolean;
+
 trait HasCastable
 {
     /**
      * Castable value.
      *
-     * @param mixed $value
+     * @param mixed|null $value
      *
-     * @return mixed
+     * @return string|int|float
      */
-    protected function castValue($value = null)
+    protected function castValue(mixed $value = null): string|int|float
     {
         if (is_numeric($value)) {
             return $value;
         }
 
         if (is_bool($value)) {
-            return $value ? 'true' : 'false';
+            return Boolean::toString($value);
         }
 
         if (is_null($value)) {
