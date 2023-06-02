@@ -48,7 +48,7 @@ class Json extends Base
             $value = $this->value($value);
 
             match ($this->is_simple) {
-                true  => $result[] = $value,
+                true  => $result[]     = $value,
                 false => $result[$key] = $value
             };
         }
