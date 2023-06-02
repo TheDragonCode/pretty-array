@@ -19,6 +19,7 @@ namespace DragonCode\PrettyArray\Services;
 
 use DragonCode\Support\Concerns\Makeable;
 use DragonCode\Support\Facades\Filesystem\File as Storage;
+use DragonCode\Support\Facades\Helpers\Str;
 use DragonCode\Support\Facades\Tools\Stub;
 use DragonCode\Support\Tools\Stub as StubTool;
 
@@ -39,12 +40,36 @@ class File
         return Storage::load($filename);
     }
 
-    public function store(string $path, string $stub = StubTool::PHP_ARRAY): void
+    public function store(string $path, ?string $stub = null): void
     {
-        $content = Stub::replace($stub, [
+        Storage::store($path, $this->resolveContent($path, $stub));
+    }
+
+    protected function resolveContent(string $path, ?string $stub): string
+    {
+        return $this->content(
+            $this->stub($stub, $path)
+        );
+    }
+
+    protected function content(string $stub): string
+    {
+        return Stub::replace($stub, [
             '{{slot}}' => $this->content,
         ]);
+    }
 
-        Storage::store($path, $content);
+    protected function stub(?string $stub, string $path): string
+    {
+        if ($stub) {
+            return $stub;
+        }
+
+        return $this->isJson($path) ? StubTool::JSON : StubTool::PHP_ARRAY;
+    }
+
+    protected function isJson(string $path): bool
+    {
+        return Str::of($path)->lower()->endsWith('.json');
     }
 }

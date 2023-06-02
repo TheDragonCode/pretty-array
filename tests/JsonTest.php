@@ -15,21 +15,24 @@
  * @see https://github.com/TheDragonCode/pretty-array
  */
 
+declare(strict_types=1);
+
 namespace Tests;
 
 use DragonCode\PrettyArray\Services\File;
 
-class FormatterStoringText extends TestCase
+class JsonTest extends TestCase
 {
     public function testStoring()
     {
         $service = $this->service();
+        $service->asJson();
 
         $array     = $this->requireSource();
         $formatted = $service->raw($array);
 
-        $src_file = $this->path('storing.php.txt');
-        $dst_file = $this->path('stored.php');
+        $src_file = $this->path('json.txt');
+        $dst_file = $this->path('stored.json');
 
         File::make($formatted)
             ->store($dst_file);

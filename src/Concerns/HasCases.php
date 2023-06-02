@@ -28,14 +28,18 @@ trait HasCases
      * @param int $type
      *
      * @throws \DragonCode\PrettyArray\Exceptions\UnknownCaseTypeException
+     *
+     * @return \DragonCode\PrettyArray\Concerns\HasCases
      */
-    public function setCase(int $type = self::NO_CASE): void
+    public function setCase(int $type = self::NO_CASE): static
     {
         if ($type < 0 || $type > 4) {
             throw new UnknownCaseTypeException($type);
         }
 
         $this->case = $type;
+
+        return $this;
     }
 
     protected function convertKeysCase(array $array): array

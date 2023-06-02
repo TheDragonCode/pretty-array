@@ -19,7 +19,7 @@ namespace Tests;
 
 use DragonCode\Contracts\Pretty\Arr\Caseable;
 
-class FormatterSwitchCasesTest extends TestCase
+class SwitchCasesTest extends TestCase
 {
     /**
      * @throws \DragonCode\PrettyArray\Exceptions\FileDoesntExistsException

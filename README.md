@@ -399,6 +399,44 @@ return [
 ];
 ```
 
+#### As JSON
+
+```php
+use DragonCode\PrettyArray\Services\File;
+use DragonCode\PrettyArray\Services\Formatter;
+
+$service = Formatter::make();
+
+$service->asJson();
+
+$formatted = $service->raw($array);
+
+File::make($formatted)
+    ->store('foo.json');
+```
+
+Result in stored file `foo.json`:
+
+```json
+{
+    "foo": 1,
+    "bar": 2,
+    "baz": 3,
+    "qwerty": "qaz",
+    "baq": {
+        "0": "qwe",
+        "1": "rty",
+        "asd": "zxc"
+    },
+    "asdfgh": {
+        "foobarbaz": "qwe",
+        "2": "rty",
+        "qawsed": "zxc"
+    },
+    "2": "'iop'"
+}
+```
+
 ## License
 
 This package is licensed under the [MIT License](LICENSE).
