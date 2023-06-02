@@ -48,7 +48,7 @@
         "dragon-code/support": "^6.0"
     },
     "require-dev": {
-        "phpunit/phpunit": "^9.6"
+        "phpunit/phpunit": "^9.0 || ^10.0"
     },
     "suggest": {
         "symfony/thanks": "Give thanks (in the form of a GitHub) to your fellow PHP package maintainers"
