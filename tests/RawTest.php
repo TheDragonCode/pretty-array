@@ -17,7 +17,7 @@
 
 namespace Tests;
 
-class FormatterRawTest extends TestCase
+class RawTest extends TestCase
 {
     public function testAsString()
     {

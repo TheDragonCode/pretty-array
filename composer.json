@@ -44,11 +44,11 @@
         "php": "^8.0",
         "ext-dom": "*",
         "ext-mbstring": "*",
-        "dragon-code/contracts": "^2.6",
-        "dragon-code/support": "^6.0"
+        "dragon-code/contracts": "^2.20",
+        "dragon-code/support": "^6.11.2"
     },
     "require-dev": {
-        "phpunit/phpunit": "^9.0 || ^10.0"
+        "phpunit/phpunit": "^9.6 || ^10.2"
     },
     "suggest": {
         "symfony/thanks": "Give thanks (in the form of a GitHub) to your fellow PHP package maintainers"
