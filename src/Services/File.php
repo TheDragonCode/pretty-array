@@ -32,8 +32,7 @@ class File
 
     public function __construct(
         protected ?string $content = null
-    ) {
-    }
+    ) {}
 
     public function load(string $filename): array
     {

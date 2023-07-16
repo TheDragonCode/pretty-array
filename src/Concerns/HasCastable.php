@@ -23,12 +23,8 @@ trait HasCastable
 {
     /**
      * Castable value.
-     *
-     * @param mixed|null $value
-     *
-     * @return string|int|float
      */
-    protected function castValue(mixed $value = null): string|int|float
+    protected function castValue(mixed $value = null): float|int|string
     {
         if (is_numeric($value)) {
             return $value;
