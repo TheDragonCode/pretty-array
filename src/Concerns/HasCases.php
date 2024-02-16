@@ -25,9 +25,9 @@ trait HasCases
     protected int $case = self::NO_CASE;
 
     /**
-     * @throws \DragonCode\PrettyArray\Exceptions\UnknownCaseTypeException
+     * @throws UnknownCaseTypeException
      *
-     * @return \DragonCode\PrettyArray\Concerns\HasCases
+     * @return HasCases
      */
     public function setCase(int $type = self::NO_CASE): static
     {
