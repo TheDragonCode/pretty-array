@@ -1,6 +1,6 @@
 # Pretty Array
 
-<img src="https://preview.dragon-code.pro/TheDragonCode/pretty-array.svg?brand=php" alt="Pretty Array"/>
+![pretty array](https://banners.beyondco.de/Pretty%20Array.png?theme=light&packageManager=composer+require&packageName=dragon-code%2Fpretty-array&pattern=topography&style=style_2&description=by+The+Dragon+Code&md=1&showWatermark=1&fontSize=100px&images=https%3A%2F%2Fwww.php.net%2Fimages%2Flogos%2Fnew-php-logo.svg)
 
 [![Stable Version][badge_stable]][link_packagist]
 [![Unstable Version][badge_unstable]][link_packagist]
