@@ -42,6 +42,6 @@ trait HasCastable
             return '[]';
         }
 
-        return "'" . addslashes($value) . "'";
+        return "'" . str_replace(['\\', "'"], ['\\\\', "\\'"], stripslashes($value)) . "'";
     }
 }
